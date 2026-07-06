@@ -1,0 +1,1313 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Stereophile House Style</title>
+<style>
+:root{
+  --paper:#FCFBF8; --ink:#211E1A; --muted:#6F6759;
+  --accent:#96271F; --hairline:#E6E0D4; --wash:#F5F1E9;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#1B1915; --ink:#ECE7DD; --muted:#A39A8B;
+    --accent:#E08573; --hairline:#37332C; --wash:#26221C;
+  }
+}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{transition:none!important} }
+body{
+  background:var(--paper); color:var(--ink);
+  font-family: Charter, 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+  font-size:16.5px; line-height:1.62;
+}
+.ui{ font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; }
+.col{ max-width:46rem; margin:0 auto; padding:0 1.25rem; }
+
+header.mast{ padding:2.6rem 0 1.4rem; }
+.eyebrow{
+  font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size:.7rem; font-weight:700; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--accent); margin:0 0 .5rem;
+}
+h1.title{
+  font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size:2rem; font-weight:800; letter-spacing:-.015em;
+  margin:0 0 .55rem; text-wrap:balance;
+}
+.mastmeta{ font-size:.85rem; color:var(--muted); font-style:italic; margin:0; }
+
+nav.bar{
+  position:sticky; top:0; z-index:5; background:var(--paper);
+  border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline);
+}
+.barrow{ display:flex; align-items:center; gap:1rem; flex-wrap:wrap; padding:.55rem 1.25rem; max-width:46rem; margin:0 auto; }
+.tabs{ display:flex; gap:.15rem; }
+.tabs button{
+  font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size:.72rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase;
+  background:none; border:none; border-bottom:2px solid transparent;
+  color:var(--muted); padding:.45rem .55rem .35rem; cursor:pointer;
+}
+.tabs button.on{ color:var(--ink); border-bottom-color:var(--accent); }
+.tabs button:hover{ color:var(--ink); }
+.tabs button:focus-visible, a:focus-visible, input:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+.findwrap{ margin-left:auto; display:flex; align-items:center; gap:.6rem; }
+#find{
+  font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:.8rem;
+  background:var(--wash); color:var(--ink);
+  border:1px solid var(--hairline); border-radius:5px; padding:.34rem .6rem; width:12.5rem;
+}
+#find::placeholder{ color:var(--muted); }
+#count{ font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:.72rem; color:var(--muted); min-width:5.5rem; font-variant-numeric:tabular-nums; }
+
+main{ padding:1.6rem 0 4rem; }
+section[data-guide]{ display:none; }
+section[data-guide].on{ display:block; }
+
+.az{ display:flex; flex-wrap:wrap; gap:.1rem .45rem; margin:.2rem 0 1.4rem; }
+.az a{
+  font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size:.74rem; font-weight:700; color:var(--accent);
+  text-decoration:none; padding:.1rem .2rem;
+}
+.az a:hover{ text-decoration:underline; }
+
+h2.section{
+  font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size:.78rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--accent); border-top:1px solid var(--hairline);
+  padding-top:1.1rem; margin:2.3rem 0 .9rem;
+}
+h3.letter{
+  font-size:1.5rem; font-weight:700; color:var(--ink);
+  border-bottom:1px solid var(--hairline);
+  padding-bottom:.25rem; margin:2.2rem 0 .8rem;
+}
+p.body, p.rule, p.entry{ margin:.55rem 0; }
+p.rule{ padding-left:1.15em; position:relative; }
+p.rule::before{ content:"•"; position:absolute; left:.05em; color:var(--accent); }
+p.entry{ padding-left:1.35em; text-indent:-1.35em; margin:.4rem 0; }
+.hw{ font-weight:700; }
+mark{ background:var(--accent); color:var(--paper); padding:0 .12em; border-radius:2px; }
+em strong, strong em{ font-style:italic; font-weight:700; }
+
+footer{ border-top:1px solid var(--hairline); padding:1.1rem 0 2.5rem; }
+footer p{ font-size:.8rem; color:var(--muted); font-style:italic; margin:.2rem 0; }
+</style>
+
+
+</head>
+<body>
+<header class="mast">
+  <div class="col">
+    <p class="eyebrow">Stereophile · Editorial Standards</p>
+    <h1 class="title">House Style</h1>
+    <p class="mastmeta">Snapshot of the canonical style guides, rendered July&nbsp;6, 2026. This page is a read-only reference; edits happen in the shared Google&nbsp;Docs. Internal editorial document — unlisted, not for publication.</p>
+  </div>
+</header>
+
+<nav class="bar" aria-label="Guides">
+  <div class="barrow">
+    <div class="tabs" role="tablist">
+      <button data-tab="general" class="on">General</button>
+      <button data-tab="directory">Directory</button>
+      <button data-tab="specs">Specifications</button>
+      <button data-tab="records">Record Reviews</button>
+    </div>
+    <div class="findwrap">
+      <input id="find" type="search" placeholder="Filter this guide&hellip;" aria-label="Filter the current guide">
+      <span id="count" aria-live="polite"></span>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="col">
+    <section data-guide="general" class="on"><h2 class="section">Stereophile Style: In General</h2>
+<p class="body"><strong>General Style Notes on Technical Matters</strong></p>
+<p class="body"><strong>Frequency Response/Range: </strong>When specifying frequency response, remember that <em>response</em> requires a tolerance; <em>ie</em>, frequency response 20Hz–20kHz, ±3dB. Without any tolerance quoted, it becomes a <em>range</em>: 20Hz–20kHz.</p>
+<p class="body"><strong>Signal/Noise Ratio:</strong> Use <em>signal/noise</em> and <em>S/N ratio</em>, rather than <em>signal-to-noise</em>. By definition, a ratio must be positive: a S/N ratio of 100dB is correct, but a S/N ratio of –100dB is wrong.</p>
+<p class="body"><strong>Stereo </strong><strong>S</strong><strong>eparation:</strong> Separation is positive, crosstalk is negative: a separation of 50dB is the same as a crosstalk of –50dB.</p>
+<p class="body"><strong>Loudspeaker Sensitivity:</strong> This is specified awkwardly as dB/W/m. I say <em>awkwardly</em> because we are talking about a sound-pressure level out for an applied voltage, not power (pressure and voltage are analogous). Convention, and a hangover from the obsolete term <em>efficiency</em>, however, dictate that power be used. As far as I can tell, manufacturers interpret a “watt” as 2.83V into an 8 ohm load, and it is this 2.83V that is referred to in sensitivity specifications. If reviewing a loudspeaker that has a nominal impedance very much less than 8 ohms, this must be pointed out, as the 2.83V will be equivalent to more than 1W. The Apogee Scintilla’s 1 ohm impedance, for example, means that its sensitivity is artificially improved by the fact that it draws 8W from the amplifier for a 2.83V input.</p>
+<p class="body"><strong>Tenses in Equipment Reports:</strong> Present tense for anything that’s a persistent characteristic; past tense for anything about the review unit that was measured or perceived.</p>
+<p class="body"><em>Example:</em></p>
+<p class="body">“The Goldblatt Synthesis 3 loudspeaker <em>has</em> two drive units, <em>is</em> covered in brown wood-grain vinyl, and costs $25. It <em>suffered</em> from a complete lack of high frequencies, and the bass was boomy.”</p>
+<p class="body">The Conclusion, however, should be written in the present tense, as it represents a reviewer’s final and, presumably, immutable verdict:</p>
+<p class="body">“On the basis of my listening tests and measurements [<em>all referred to in the body of the report in the past tense</em>], I can assure you that the Goldblatt Synthesis 3 is possibly the worst hi-fi component released by a so-called high-end company.”</p>
+<h2 class="section">STEREOPHILE STYLES</h2>
+<p class="body">Our “base” style is the Chicago Manual of Style, but rules laid out in this style guide take precedence over Chicago rules.</p>
+<h2 class="section">General</h2>
+<p class="rule">A period or other sentence-ending punctuation mark should be followed by only a <em>single</em><em> </em>word space. There should be no double, triple, quadruple (etc.) word spaces anywhere in your file.</p>
+<p class="rule">Paragraphs should <em>not</em> be separated by an extra line space, only a hard return. To ensure this, go to Settings/View and click “All” in under “Show Non-Printing Characters.” This will allow you to see other marks that will not print but may affect the layout—in Word and eventually in InDesign. </p>
+<p class="rule">All quotations take double quote marks. The only exceptions are quotations <em>within</em> a quotation, which take single quotes. We use “curly” quotes, also called “Smart Quotes” in word and “Typographer’s Quotes” in InDesign. On the other hand, for inches and feet, straight quotes are used. On a Mac, hitting Cmd-Z immediately after typing the quote will turn a curly quote back to straight.</p>
+<p class="rule">Periods and commas come before (inside) the close-quotes; colons and semicolons come after (outside) the close-quotes. Examples:</p>
+<p class="body">	Richard Nixon said, “I am not a crook.”</p>
+<p class="body">	“I don’t think this makes me look fat,” said Piglet.</p>
+<p class="body">	He once called these types of products “obsolete”: turntables, 8-track tape players, cassette players.</p>
+<p class="rule">Accents: Be sure to include <em>all</em> accented characters in proper nouns and foreign phrases as they appear in whatever you’re quoting or referring to. These occur even in some words in US English: <em>décor</em>, <em>naïve</em>, <em>café</em>, the prefix <em>über-</em>, etc. On a Mac, these can be typed simply by holding down the letter key until a list of accented characters appears. Then type in the number of the character with the desired accent.</p>
+<p class="rule">Ellipses: We now use proper ellipsis characters (…) and not a series of three periods separated by spaces. When the first part of a quoted passage is a complete sentence, whether in its original <em>or</em> its quoted form, insert a period and then a space before inserting the ellipsis character and a space after the ellipsis character before starting the next sentence.</p>
+<p class="body">   The spirit of our American radicalism is destructive and aimless. … On the other side, the conservative party … is timid, and merely defensive of property. … It does not build, nor write, nor cherish the arts, nor foster religion, nor establish schools.</p>
+<p class="rule">Apostrophes: roman when preceding word is italic; example: <em>Stereophile</em>’s. Also: use apostrophe, <em>not</em> single open quotation mark, to indicate omitted opening letters/syllable in contractions: ’Cause I said so, <em>not</em> ‘Cause I said so.</p>
+<p class="rule">Commas: For clarity and ease of reading, we use the serial or Oxford comma before the <em>and</em> at the end of a series or list: “I eat mostly wheat chaff, oat hulls, and grits.” An example of the confusion that omission of this comma can cause: “I’d like to thank my parents, Madonna and the Pope.” Also, no comma should be used between phrases unless there’s a new subject. Example: “I am going to the store and then to the theater.” Not: “I am going to the store, and then to the theater.” But: “I am going to the store, and then I am going to the theater.” </p>
+<p class="rule">Other than subheads, <strong>boldface</strong> should be rare. It is occasionally used in quotes, where it was used in the original. And it is used in the Specifications section: See separate style sheet.</p>
+<p class="rule">We insert <em>no</em> wordspaces on either side of a hyphen (-), an en dash (–), or an em dash (—). On a Mac, an en dash (or en-dash) can be typed by holding down the option key while typing a hyphen. An em dash (or em-dash) can be typed by holding down the Option and Shift keys and typing a hyphen.</p>
+<p class="rule">Use the simplest punctuation that does the job: never an em dash where a comma or semicolon will do, never a semicolon where a period will do. The em dash earns its place only where simpler marks fail: paired dashes setting off an interrupter, an appositive containing commas, a true break in thought. Example: “The unit includes internal storage; a 2TB SSD is standard” (not “…internal storage—a 2TB SSD is standard”).</p>
+<p class="rule">Joining word pairs: A slash joins named states, settings, and alternatives—the On/Off switch, Standby/On, an A/B test, MM/MC, L/R, 33/45rpm—including multi-position selectors: the LP/CD/AUX/TAPE selector. The slash is kept when the pair modifies a noun (the On/Off switch, not the on-off switch). A hyphen joins oppositional pairs used as compound modifiers: an on-off comparison, a left-right balance adjustment, a push-pull output stage. The en dash is reserved for ranges of numbers (20Hz–20kHz), negative numbers (–3dB), and compound modifiers containing an open element (a Recommended Components–list shopper); do not use an en dash to join word pairs.</p>
+<p class="rule">“For example” and similar movable connectives (for instance, say, that is): comma placement should match attachment. Use paired commas only when the phrase interrupts: “It is, for example, possible to bypass the DSP.” When it introduces the example that follows, omit the comma after it: “You’ve surely used USB with a computer, for example to connect to external storage.” A trailing gloss takes only the comma before it: “…a different preset for movie watching, for example.”</p>
+<p class="rule">Capitalize the first word after a colon when what follows is a complete sentence, able to stand on its own: “Power is handled by two linear supplies: One feeds the USB port and the system processor…” Lowercase when what follows is a fragment or list: “Two sources: local files and Qobuz.”</p>
+<p class="rule">In quotations, respect the words as spoken, but the punctuation is the editor’s: add or adjust punctuation inside a quote (commas, compound-modifier hyphens) whenever house style requires it and the speaker’s meaning is preserved.</p>
+<p class="rule">Titles of newspaper or magazine articles or essays, book chapters, individual songs, and individual TV episodes get initial caps and are enclosed in double quotes; eg, “MQA, DRM, and Other Four-Letter Words,” Bob Dylan’s “Like a Rolling Stone,” George and Ira Gershwin’s “But Not for Me,” the <em>Bonanza</em> episode “Leprechauns.”</p>
+<p class="rule">The style for recurring titles of columns and departments is initial caps, roman, no quotes: Letters, As We See It, Analog Corner; only the title of a specific month’s installment would be enclosed in quotes</p>
+<p class="rule">Titles of books, newspapers, magazines, films, TV series or shows, albums, unique musical works, CDs, SACDs, DVDS, are italicized, with initial caps. Examples:</p>
+<h2 class="section">Stereophile</h2>
+<p class="body">		the<em> Washington Post</em>, the <em>New York Times</em></p>
+<p class="body">		Tolstoy’s <em>War and Peace</em></p>
+<p class="body">		George Lucas’s <em>Star Wars</em></p>
+<p class="body">		the Beatles’ <em>Abbey Road</em></p>
+<p class="body">		Miles Davis’s <em>Kind of Blue</em></p>
+<h2 class="section">Rimsky-Korsakov’s Scheherazade</h2>
+<p class="body">		Puccini’s <em>Madama Butterfly</em></p>
+<p class="body">		the Sheffield <em>Track Record</em></p>
+<p class="body">		<em>The New Yorker</em> but the <em>Chicago Tribune</em></p>
+<p class="body">		a stack of <em>Newsweek</em>s (note roman plural <em>s</em>!)</p>
+<h2 class="section">Hamlet</h2>
+<p class="body"><em>	</em><em>	</em>Dickens’s <em>A Tale of Two Cities</em></p>
+<p class="body">   <em>U</em><em>nique</em> titles of musical works, record albums, books, films, operas, oratorios, plays, tone poems, etc., are italicized:</p>
+<p class="body">		Mozart’s <em>The Magic Flute</em></p>
+<h2 class="section">Handel’s Messiah</h2>
+<h2 class="section">Ravel’s Boléro</h2>
+<p class="body">		Neil Young’s <em>Harvest</em></p>
+<p class="body">   Titles of individual songs (classical, pop, folk, or jazz) or arias, essays, magazine articles, chapter titles, appear in roman, in quotes:</p>
+<p class="body">		“The Star-Spangled Banner”</p>
+<p class="body">		“Nessun dorma”</p>
+<p class="body">		“Like a Rolling Stone”</p>
+<p class="body">    	“Norwegian Wood,” from the Beatles’ <em>Rubber Soul</em></p>
+<p class="body"><em>	</em><em>	</em>the column As We See It, in <em>Stereophile</em></p>
+<p class="body">		Poe’s short story “The Purloined Letter”</p>
+<p class="body">		the final episode, “Coming Home,” of the TV series <em>M*A*S*H</em></p>
+<p class="body">   Titles of works of any length identified by the musical form in which they were written take initial caps only:</p>
+<p class="body">		Beethoven’s Fifth Symphony or Symphony 5</p>
+<p class="body">		Bach’s Mass in b</p>
+<p class="body">		Chopin’s Études Op.10</p>
+<p class="body">		Brahms’s Piano Concerto 2</p>
+<p class="body">   Nicknames of works are in quotes:</p>
+<p class="body">		Mozart’s Symphony 41, “Jupiter”</p>
+<p class="body">		Beethoven’s “Moonlight” Sonata</p>
+<p class="body">		Schubert’s “Trout” Quintet</p>
+<p class="body">   Nicknames given <em>by the composer</em> to a symphony or other work in a generic musical form are italicized:</p>
+<p class="body">		Beethoven’s Symphony 3, <em>Eroica</em> and Symphony 6, <em>Pastoral</em></p>
+<p class="body">		Tchaikovsky’s Symphony 6, <em>Pathétique</em></p>
+<p class="body">   Descriptive titles of movements within classical works are italicized with first initial caps:</p>
+<h2 class="section">Andante</h2>
+<h2 class="section">Adagio</h2>
+<p class="body">		<em>Largo ma non tanto</em></p>
+<h2 class="section">Allegro moderato</h2>
+<p class="rule">Titles of positions: l/c, as in “Jim Austin, editor of <em>Stereophile</em>,” but they are capitalized when placed before a name as a formal designation: <em>Stereophile</em> Editor Jim Austin. Not however that position descriptions that are not formal titles are not capped even when they precede the name: “But electronic engineer Jeremy Blyer insists … .”</p>
+<p class="rule">Check and confirm all proper nouns: spellings of names of people, groups, companies, products, and titles, including abbreviations, initialisms, and acronyms, including any punctuation or incapping. Rules of thumb: If you’re unsure of a spelling or style, look it up. If you’re <em>sure</em> of a spelling or style, look it up.</p>
+<p class="rule">Names starting with “The”: When the official name of a musical group starts with an article (The National, The Who), the first letter of the article is capped, as it would be in any title. Note, however, that sometimes the “the” is just a “the.” E.g., “We reviewed the Who album in last month’s issue.”</p>
+<p class="rule">Foreign phrases (musical directions, <em>pianissimo</em>, etc.): italics, <em>unless</em> commonly accepted in English and are in standard dictionaries of US English.</p>
+<p class="rule">Key signatures: capped (Symphony 6 in D). If a key is minor, the letter should also be capped and followed by “Minor”: (Symphony 9 in D Minor);</p>
+<p class="rule">Possessives: add <em>s</em> to all proper names ending in <em>s</em>. Examples: Jansons’s musical acumen,” “Wes’s favorite cat.”</p>
+<p class="rule">Plural possessives: use apostrophes after the second or last name only if what is possessed is a shared entity or quantity, on both or all names if what is possessed is possessed singly by each person: Barack and Michelle’s marriage, Obama’s and Bush’s administrations</p>
+<p class="rule">size/sized: <em>medium-size </em>item, but <em>CD-sized</em> damping disc; add <em>d</em> when referring to something of specific size (CD), no <em>d</em> if a general size range (medium)</p>
+<p class="rule">Sounds: italicize words meant to indicate sounds: a <em>hrrrm</em> quality, or a <em>shhhh</em> or <em>sssss</em> sound, or he reproduces the <em>ehs</em> and <em>ihs</em> very well—but don’t italicize onomatopoeic words such as ding-dong or hiss or zing.</p>
+<p class="rule">Editorial interpolations, stage directions: italics &amp; brackets (coded with braces), as in [<em>laughter</em>], l/c <em>L</em></p>
+<p class="body"><strong>References to Recordings in Equipment Reports, Columns, Etc.</strong></p>
+<p class="body">Recordings are used as references in the auditioning of audio equipment: An essential part of every equipment report is the reviewer’s reporting on what he or she hears in a specific component’s reproduction of the sound of a specific recording. That way, the interested reader can listen to the same recording through his/her own system and compare his/her impressions with those of the writer. So in addition to precise, vivid, detailed descriptions of the <em>sound</em>, the reader needs all the information necessary to find and obtain a copy of the recording. Examples follow:</p>
+<p class="rule">Rock and Jazz: artist or group name, <em>album title</em>, and “track title.” On first mention, this should be followed, in parentheses, by the format, label, and catalog number of the recording, and the streaming service, if any. Include catalog numbers whenever they exist—but note that downloads and streams rarely have catalog numbers. Examples:</p>
+<p class="body">   The RP-600M showed me anew the elegant simplicity and intoxicating virtuosity of Skip James’s piano, guitar, and singing. I’ve rarely experienced the full intricacies of his piano playing as I did when listening to “Little Cow, Little Calf Blues,” from <em>Blues from the Delta</em> (16/44.1 FLAC, Vanguard 79517-2/Qobuz).</p>
+<p class="body">   “Had to Cry Today,” from Blind Faith’s eponymous studio album (AIFF rip from Japanese CD, Polydor UICY-9168)</p>
+<p class="body">   Keith Jarrett’s <em>The Köln Concert</em> (24/48 FLAC file, ECM)</p>
+<p class="rule">Classical: title of work, names of conductor, solo singers (if their singing is specifically discussed) and/or principal instrumentalists (ditto), and/or name of orchestra or chamber or vocal ensemble. Obviously, there are many different ways to engagingly present this information. On first mention, this should be followed, in parentheses, by the format, label, and catalog number of the recording, and the streaming service, if any. Examples:</p>
+<p class="body">   violinist Marianne Rônez and Affetti Musicali’s recording of Biber’s <em>Mystery Sonatas</em> (CD, Winter &amp; Winter 910 029-2)</p>
+<p class="body">   Robert Silverman playing Beethoven’s Piano Sonata 30 in E, Op.109 (24/44.1 FLAC, OrpheumMasters/Qobuz)</p>
+<p class="body">   Liszt’s piano transcription of the <em>Solemn March to the Holy Grail</em>, from Wagner’s <em>Parsifal</em>, as performed by Daniel Barenboim on his <em>On My New Piano</em> (24/96 AIFF download, Deutsche Grammophon)</p>
+<h2 class="section">Interviews</h2>
+<p class="body">Intro graf in roman:</p>
+<p class="body">Audio Alchemy took the hi-fi world by surprise. Blah copy blah copy blah blah blah.</p>
+<p class="body">Names of interviewer and interviewee spelled out in full in first instances; for all instances thereafter, use initials.</p>
+<p class="body">Interviewer’s questions and statements in <em>italics</em>.</p>
+<p class="body">Interviewees answers and statements in roman.</p>
+<p class="body"><em>Examples of above:</em></p>
+<p class="body"><strong>Peter Catalano:</strong> <em>After so many years with the Concertgebouw Orchestra in Amsterdam, is there any lingering bitterness since you left your post there as music director? Most of us are very vague about the story of your departure.</em></p>
+<p class="body"><strong>Bernard Haitink:</strong> Well, no bad feelings toward the orchestra; none at all. I have many friends there.</p>
+<p class="body"><strong>PC:</strong> <em>And here’s the next question . . .</em></p>
+<p class="body"><strong>BH:</strong> And here’s my next answer . . .</p>
+<p class="body">etc.</p>
+<h2 class="section">Letters</h2>
+<p class="body">1) keep writer’s voice!</p>
+<p class="body">2) correct spelling/query where meaning is unclear</p>
+<p class="body">3) headers all l/c except first word and proper nouns</p>
+<p class="body">4) byline styles: Italics for letter writers, bold with em dash in front for editorial replies. No punctuation at the end of lines.</p>
+<h2 class="section">Equipment Review Format</h2>
+<p class="rule">Titles of articles or reviews should be flush left, with the proper capitalization (but not in all caps). Bylines should appear immediately beneath the title and should consist of your name <em>without</em> the word “By.”</p>
+<p class="body">See complete guides to Equipment Report Specifications and Associated Equipment sidebars at the end of this guide.</p>
+<h2 class="section">Plurals and Possessives</h2>
+<p class="rule">Plurals are made without apostrophes: 1980s (not 1980’s), CDs (not CD’s), DVDs (not DVD’s), DVD-As (not DVD-A’s), etc. An apostrophe can be used to indicate a plural <em>only</em> when necessary to avoid confusion or awkwardness. Examples: when making a plural of a single letter or number: “He got three A’s on his report card.” Or when, say, a product’s model name ends with a lower-case letter: “two Vandersteen 2Ce’s” or “LS 3/5a’s.” This makes it clear that the <em>s</em> indicating a plural is not part of the model name.</p>
+<p class="rule">Form possessives of words ending in <em>s</em> by adding apostrophe and <em>s</em>; eg, “Gladys’s hat,” not “Gladys’ hat.”</p>
+<p class="rule">Companies are <em>generally</em> considered to be singular collective entities, not plurals: “D’Agostino is [<em>not</em> are] working on several improvements to <em>its</em> [<em>not</em> their] new line of SACD players”; “It [Krell] will be releasing a five-disc changer in September.” However, this can also be varied by referring to groups or individuals within the company, for instance: “Dan D’Agostino is working on an improved version of his SACD player.” Or you can use a noun like “the company” or “the firm”; eg, “All of the company’s [instead of “its”] products are finished in polished aluminum.”</p>
+<h2 class="section">Numbers and Dates</h2>
+<p class="rule">Spell out numbers from one to nine: “the turntable has three speeds,” “it’s a two-channel recording” (<em>but</em>: a 5.1-channel soundtrack), “each Infinity speaker has 16 tweeters.” The sole exception is when followed by a unit of measure, including time. So, four rabbits, but 6 ohms and 7 years.</p>
+<p class="rule">When specifying two <em>different</em> quantities or sets of numbers next to or near one other, it’s clearer to spell out numbers for one and use digits for the other: “The amp requires twelve 300B tubes.”</p>
+<p class="rule">No comma in four-digit numbers: $4959, 3000 years, 1500 dealers, etc.</p>
+<p class="rule">Use commas to delineate thousands, millions, billions, etc., in numbers of five or more digits: $45,000, 120,000, a population of 3,500,000, etc.</p>
+<p class="rule">A sentence cannot begin with digits; spell out numbers at the beginning of a sentence: “Sixteen tubes are used in this amplifier,” “Nineteen-ninety-five was the first year of production.” Of course, such sentences can always be reworded or reordered: “This amplifier uses 16 tubes.” “The first year of production was 1995.” </p>
+<p class="rule">Decades and centuries are never spelled out, and <em>century</em> is not capped: “During the 1970s,” “In the 19th century.” When decades are indicated with only the last two numbers, we precede them with an apostrophe, in standard contraction style: the ’70s. Be sure this is an actual apostrophe (’) and not a single open quote (‘). If your word-processing software tries to “help” by inverting this, insert the apostrophe manually: in Windows, use the far-right number keypad with Num Lock on: Alt+0146.</p>
+<p class="rule">Use numerals for <em>5.1-channel</em>, <em>7.1-channel</em>, etc., but spell out <em>two-channel</em>, <em>five-channel</em>, etc. Use a hyphen only when these phrases are used adjectivally: a two-channel recording, <em>but</em> recorded in two channels (not two-channels).</p>
+<p class="rule">A range of numbers is written with en-dash (–) between two numbers; eg, 20–120Hz. Do <em>not</em> use a hyphen (-) and do <em>not</em> use an em-dash (—). If you begin a range with <em>from</em>, you must complete it with <em>to</em>. Example: from 20 to 60Hz (<em>not</em>: from 20–60Hz).</p>
+<p class="rule">Impedances are expressed using numerals and “ohms” written out: 4 ohms, not four ohms or 4Ω.</p>
+<p class="body"><strong>Abbreviations, Symbols, </strong><strong>Units of Measurement, </strong><strong>Idiomatic Usages</strong></p>
+<p class="rule">No word spaces between numbers and symbols or abbreviations; eg, 25Hz, 20MHz, 20kHz, 64MB, 92dB, 35W, 40Wpc, 120V, 12oz, 180gm, 20.5kg, 3m, 120mm (note capitalizations). A common exception, for readability: 21 lb (not 21lb or 21 lbs).</p>
+<p class="rule">Use kilohertz instead of thousands of Hertz; eg, 2kHz, not 2000Hz; 2.5kHz, not 2500Hz; 20Hz–20kHz, not 20–20,000Hz; etc.</p>
+<p class="rule">A/B comparison (<em>not</em> AB).</p>
+<p class="rule">A/V <em>or</em> audio/video (<em>not</em> A-V <em>or</em> AV <em>or</em> av <em>or</em> audio-video).</p>
+<p class="rule">In adjectival constructions, the point of hyphenation is to avoid ambiguity. Hence, connect numbers and units of measurement with a hyphen; eg, 32-bit file, 7-gigabyte FLAC file, 15-pin connector, 16-bit/<em>44</em>.1kHz FLAC file. <em>No</em> hyphen in non-adjectival constructions: a word depth of 16 bits. When an adverb modifies an adjective, no hyphen is used: the wildly popular amplifier. Except that when that adverb is “well,” a hyphen is used: a well-regarded loudspeaker.</p>
+<p class="rule">Digital Resolutions: bit depth first, followed by sampling rate: 16/44.1, 24/48, 24/96, etc. (not 44.1kHz/16-bit or 44.1/16)</p>
+<p class="rule">We no longer use IEEE1394; use FireWire (note spelling and capitalization).</p>
+<p class="rule">We spell RS232 with no hyphen or spaces (<em>not</em> RS-232 or RS 232).</p>
+<p class="rule">We use AES3, not AES/EBU. S/PDIF is a data format; S/PDIF data can be delivered over electrical connection (RCA or BNC) or optical (typically TosLink).</p>
+<p class="rule">Rather than writing out “degrees” and “inch/inches” and “foot/feet,” use the degree symbol (°), inch mark (&quot;), and foot mark (&#x27;). Foot and inch marks in Stereophile are straight quotes.) If Smart Quotes are turned on in Word, each time you try to type a straight quote (double or single), it will become curly. If you’re trying to type the character for inches or feet, you can undo this on a Mac by immediately typing Cmd-Z.</p>
+<p class="rule">When such a term <em>begins</em> a sentence, spell out the number and the unit of measurement; eg, “Thirty-two degrees Fahrenheit is the temperature at which water freezes.” Whenever possible, of course, reword to avoid having to spell out numbers: “Water freezes at a temperature of 32°F.”</p>
+<p class="rule">Omit periods in abbreviations of common Latin words and phrases, and do not italicize them: eg (not e.g. or <em>e.g.</em>), vs (not vs. or <em>vs</em> or versus), ie (not i.e. or <em>i.e.</em>), etc.</p>
+<p class="rule">The correct rendering for those high-rez video (and sometimes audio) discs is Blu-ray.</p>
+<p class="rule">The following abbreviations take hyphens: BD-ROM, CD-ROM, CD-R, CD-RW, DVD-A, D-VHS, DTS-ES, D-ILA.</p>
+<p class="rule">analog, dialog, catalog—no British ue on the end : (<em>not</em> analogue, dialogue, catalogue) </p>
+<p class="rule">A speaker’s drivers are covered with a <em>grille</em> (not a <em>grill</em>).</p>
+<p class="rule">set up is a verb, setup is a noun, and set-up is an adjective. Examples: I set up the speakers. What do you think of my speaker setup? That’s a well-set-up system.</p>
+<p class="rule">email (<em>not</em> e-mail)</p>
+<p class="rule">website (<em>not</em> web site, Web site, Website)</p>
+<p class="rule">internet (<em>not</em> Internet). But Ethernet (not ethernet).</p>
+<p class="rule">preamp (<em>not</em> pre-amp)</p>
+<p class="rule"><em>midbass</em> to describe <em>a range of frequencies</em> (not mid-bass). <em>mid/bass</em> to describe <em>a single driver</em> that covers the midrange and bass frequencies (<em>not</em> mid-bass). Note that italics here are for emphasis only: These terms should not be italicized.</p>
+<p class="rule">Los Angeles is abbreviated L.A. (with periods, because “LA” is the postal abbreviation for Louisiana.) The United States and United Kingdom are US (not U.S.) and UK (not U.K.).</p>
+<p class="rule">Avoid UK spellings: theater, not theatre; fiber, not fibre; center, not centre; etc. </p>
+<p class="rule">Words and abbreviations (or initialisms) that begin with a vowel <em>sound</em> take the indefinite article <em>an</em>; eg, an HDTV set, an LCD panel.</p>
+<p class="rule">Spell out “microphone” whenever you can without it seeming ponderous. The abbreviations for <em>microphone</em> are <em>mike</em><em>, </em><em>miked</em><em>, miking </em>(not mic, miced, micing). There’s no good answer for this one. We made a call.</p>
+<p class="rule">Carefully check spellings of manufacturer names and component model names. Be especially careful to use correct capitalization, hyphens, and spaces (or any lacks thereof).</p>
+<p class="rule">The publication of the technical specifications for the Compact Disc format is spelled “Red Book” (two words, both capped).</p>
+<p class="rule">Note spelling and capitalization in Blu-ray. The <em>r</em> is not capitalized, nor does <em>Blu</em> take an <em>e</em>. Abbreviated BD.</p>
+<p class="rule">The names of common units of measurement named after people are lower-cased when spelled out, capped when abbreviated: watt/W, volt/V, ampere/A, ohm, farad/F, etc. When the unit is a symbol or symbols, there’s no space (10V, 12kHz). When it is a word, use a space: 8 ohms. </p>
+<h2 class="section">Hyphenation</h2>
+<p class="rule">These adjectives and modifying compounds, and similar constructions, are hyphenated for ease of reading and clarity:</p>
+<h2 class="section">belt-drive, belt-driven</h2>
+<h2 class="section">built-in</h2>
+<p class="body">5.1-channel (<em>not</em> just 5.1)</p>
+<p class="body">follow-up (Follow-Up when referring to such an equipment report in <em>Stereophile</em>)</p>
+<p class="body">hi-def (not high-def)</p>
+<h2 class="section">high-definition</h2>
+<h2 class="section">hi-fi</h2>
+<p class="body">hi-rez, lo-rez, <em>not</em> high-rez, high-res, hi-res, low-rez, low-res, lo-res</p>
+<h2 class="section">out-of-the-box</h2>
+<p class="body">three-dimensional (3D on subsequent mentions)</p>
+<h2 class="section">three-way</h2>
+<h2 class="section">two-way</h2>
+<h2 class="section">wall-mounted</h2>
+<h2 class="section">wall-mounting</h2>
+<h2 class="section">warm-up</h2>
+<p class="rule">These nouns should appear as two words (except when used as an adjectival phrase, in which case they take a hyphen):</p>
+<h2 class="section">line stage</h2>
+<h2 class="section">phono stage</h2>
+<p class="body">Certain two-word phrases should not be hyphenated because, due to widespread use, they present no ambiguity when modifying a noun (high school physics). Examples from hi-fi are:</p>
+<p class="body">Voice coil former</p>
+<p class="body">Moving magnet cartridge</p>
+<p class="body">Moving coil cartridge</p>
+<p class="body">High end audio</p>
+<p class="body">Solid state amplifier</p>
+<p class="rule">Each of these adjectives and nouns is closed up as a single word:</p>
+<h2 class="section">backlit</h2>
+<h2 class="section">bipole, bipolar</h2>
+<h2 class="section">bitstream</h2>
+<h2 class="section">buildup</h2>
+<h2 class="section">chipset</h2>
+<h2 class="section">deinterlace, deinterlacing</h2>
+<h2 class="section">dipole, dipolar</h2>
+<h2 class="section">downsample, downsampling</h2>
+<p class="body">FireWire (<em>not</em> Fire Wire or Firewire)</p>
+<h2 class="section">floorstanding, floorstander</h2>
+<h2 class="section">hookup</h2>
+<h2 class="section">lineup</h2>
+<p class="body">midrange, midbass, etc.</p>
+<h2 class="section">multichannel</h2>
+<h2 class="section">multipath</h2>
+<h2 class="section">multiroom</h2>
+<h2 class="section">postprocessing</h2>
+<h2 class="section">postproduction</h2>
+<h2 class="section">preamp, preamplifier</h2>
+<h2 class="section">rolloff</h2>
+<h2 class="section">sidewall</h2>
+<h2 class="section">soundfield</h2>
+<h2 class="section">soundstage</h2>
+<h2 class="section">soundtrack</h2>
+<h2 class="section">upsample, upsampling</h2>
+<h2 class="section">widescreen</h2></section>
+    <section data-guide="directory">
+      <div class="az ui" aria-label="Jump to letter"><a href="#dir-A">A</a><a href="#dir-B">B</a><a href="#dir-C">C</a><a href="#dir-D">D</a><a href="#dir-E">E</a><a href="#dir-F">F</a><a href="#dir-G">G</a><a href="#dir-H">H</a><a href="#dir-I">I</a><a href="#dir-J">J</a><a href="#dir-K">K</a><a href="#dir-L">L</a><a href="#dir-M">M</a><a href="#dir-N">N</a><a href="#dir-O">O</a><a href="#dir-P">P</a><a href="#dir-R">R</a><a href="#dir-S">S</a><a href="#dir-T">T</a><a href="#dir-U">U</a><a href="#dir-V">V</a><a href="#dir-W">W</a></div>
+      <h2 class="section">Stereophile Style – Directory</h2>
+<h3 class="letter" id="dir-A">A</h3>
+<h2 class="section">Abbreviations</h2>
+<p class="entry">inch or inches: &quot;</p>
+<p class="entry">feet or foot: &#x27;</p>
+<p class="entry">Otherwise, use SI units: dB for decibel(s), Hz for hertz, m for meter, µm for micrometer, nm for nanometer, s for second, k ohm for kilohm, V for volt, mV for millivolt, kV for kilovolt, kg for kilogram, <em>but</em> gm for gram and ips for inches/s.</p>
+<p class="entry"><em>Stereophile</em> differs from SI in one respect: we do not put spaces between the number and the unit.</p>
+<p class="entry"><span class="hw">Abbreviations, initialisms, and acronyms: unless the abbreviated form has acquired an existence of its own</span>—NATO, FET, etc.—always use in full for first mention: <em>eg</em>, “The fate of the hi-fi show was in the hands of the Federation of British Audio. Nevertheless, a majority of FBA members felt that they had to support it.”</p>
+<p class="entry"><em>The Absolute Sound</em>, audiophile magazine; while an <em>!</em> substitutes for <em>l </em>in the logo, the magazine uses the l in its name</p>
+<p class="entry">a cappella</p>
+<p class="entry">accordion</p>
+<p class="entry">AC-line conditioner</p>
+<p class="entry">Acoustic Sciences Tube Traps and Shadow Casters</p>
+<p class="entry"><em>Adagio</em>: italics and cap <em>A</em> when formal title of specific movement; Roman and lowercase when used as general noun or adjective</p>
+<p class="entry"><span class="hw">adapter</span>—<em>not </em>adaptor</p>
+<p class="entry"><span class="hw">a/d/s/</span>—all l/c; make sure all 3 slashes appear</p>
+<p class="entry"><span class="hw">ad hoc</span>—two words always</p>
+<p class="entry"><span class="hw">AES</span>—Audio Engineering Society</p>
+<p class="entry"><span class="hw">AES3</span>—<em>not </em>AES/EBU</p>
+<p class="entry">aftermarket</p>
+<p class="entry"><span class="hw">Aïda</span>—character and title of opera; note diaeresis over <em>i</em></p>
+<p class="entry">air-bearing pickup arm (tonearm)</p>
+<p class="entry"><span class="hw">Airtangent</span>—product name</p>
+<p class="entry"><span class="hw">AirTight</span>—company name</p>
+<p class="entry"><span class="hw">aka</span>—for <em>also</em><em> </em><em>known</em><em> </em><em>as</em>; no italics, no periods</p>
+<p class="entry"><span class="hw">à la</span>—no italics; note accent grave over <em>à</em> and wordspace before <em>la</em></p>
+<p class="entry"><span class="hw"><em>bmoderato</em></span>—italics, cap <em>A</em></p>
+<p class="entry"><span class="hw"><em>Allegro</em><em> </em><em>molto</em></span>—italics, cap <em>A</em></p>
+<p class="entry"><span class="hw">Alón</span>—loudspeaker from Acarian Systems; note acute accent</p>
+<p class="entry"><span class="hw">a lot</span>—not <em>alot</em></p>
+<p class="entry"><span class="hw">ALPS</span>—for potentiometer manufacturer</p>
+<p class="entry"><span class="hw">ambiance</span>—pervading social or emotional atmosphere</p>
+<p class="entry"><span class="hw">ambience</span>—refers to reverberation and space on a recording</p>
+<p class="entry"><span class="hw">ampersand (&amp;)</span>—use in music &amp; equipment report heads, unless <em>an</em><em>d</em> is actually part of title</p>
+<p class="entry"><span class="hw">amplifier</span>—spell out; not <em>amp</em></p>
+<p class="entry"><span class="hw">analog</span>—<em>not </em>analogue</p>
+<p class="entry">analog-domain attenuation</p>
+<p class="entry">antiskating</p>
+<p class="entry">armboard</p>
+<p class="entry">armtube</p>
+<p class="entry"><span class="hw">article titles</span>—enclose in quotation marks</p>
+<p class="entry">AT&amp;T (not ATT)</p>
+<p class="entry">audioband</p>
+<p class="entry">audio-grade (as adj.)</p>
+<p class="entry">AudioQuest</p>
+<p class="entry">AudioPrism</p>
+<p class="entry"><span class="hw">axe</span>—<em>not</em> ax</p>
+<p class="entry"><span class="hw">AXPONA</span>—all caps</p>
+<p class="entry"><span class="hw">a while</span>—not <em>awhile</em></p>
+<h3 class="letter" id="dir-B">B</h3>
+<p class="entry">bandwidth</p>
+<p class="entry"><span class="hw">Bartók</span>—note accent</p>
+<p class="entry"><span class="hw">baseline</span>—one word</p>
+<p class="entry"><span class="hw">bass line</span>—two words</p>
+<p class="entry">bellwire</p>
+<p class="entry"><span class="hw">belt drive</span>—two words as noun, hyphen as modifier</p>
+<p class="entry">bench testing</p>
+<p class="entry"><span class="hw">Berlin Philharmonie</span>—performance venue for the Berlin Philharmonic</p>
+<p class="entry">biamp, biamped, biamping</p>
+<p class="entry">bias-trim pot</p>
+<p class="entry"><span class="hw">bit rate, bitrate</span>—two words as noun, hyphen as modifier</p>
+<p class="entry">bitstream</p>
+<p class="entry">biwire, biwired, biwiring</p>
+<p class="entry">boom box</p>
+<p class="entry">bottom end (noun), bottom-end (adjective)</p>
+<p class="entry">break in (noun), broken in (noun), break-in (verb), broken-in (verb)</p>
+<p class="entry">brick and mortar (noun), brick-and-mortar (adjective); b&amp;m on second reference (lowercase)</p>
+<p class="entry">Bright Star Audio Big Rock bases</p>
+<p class="entry">brownout (noun); to brown out (verb)</p>
+<p class="entry"><span class="hw">bus, bus bar</span>—a set of parallel conductors in a computer system that forms a main transmission path; plural <em>buses</em> (<em>not</em> buss, buss bar, busses)</p>
+<p class="entry"><span class="hw">buss</span>—kiss</p>
+<h3 class="letter" id="dir-C">C</h3>
+<p class="entry"><span class="hw">canceled</span>—one <em>l</em></p>
+<p class="entry"><span class="hw">C&amp;W</span>—short for Country and Western music</p>
+<p class="entry"><span class="hw">carte blanche</span>—no italics</p>
+<p class="entry"><span class="hw">catalog</span>—<em>not </em>catalogue</p>
+<p class="entry">catch-22 (always)</p>
+<p class="entry"><span class="hw">CD-R</span>—for Compact Disc–Recordable (the disc itself)</p>
+<p class="entry"><span class="hw">CDR</span>—for Compact Disc recorder (the device)</p>
+<p class="entry">CD spindle</p>
+<p class="entry"><span class="hw">CEDIA</span>—Custom Electronic Design &amp; Installation Association</p>
+<p class="entry"><span class="hw">CES</span>—Consumer Electronics Show (<em>never</em> CES show, which is redundant)</p>
+<p class="entry"><span class="hw">center channel</span>—the audio channel between the left and right front audio channels</p>
+<p class="entry"><span class="hw">center-channel</span>—the loudspeaker that reproduces the center audio channel</p>
+<p class="entry"><span class="hw">cent, cents</span>—use cent sign: ¢</p>
+<p class="entry">chipset</p>
+<p class="entry">circuit board</p>
+<p class="entry"><span class="hw">class-A</span>—circuitry that uses much juice (l/c, hyphen regardless of part of speech)</p>
+<p class="entry"><span class="hw">Class A</span>—highest rating in “Recommended Components”</p>
+<p class="entry"><span class="hw">Classé</span>—company name; note accent acute</p>
+<p class="entry"><span class="hw">Clearaudio</span>—<em>not</em> ClearAudio</p>
+<p class="entry"><span class="hw">cliché, clichéd</span>—note acute accent</p>
+<p class="entry"><span class="hw">codec, codecs</span>—compression/decompression</p>
+<p class="entry"><span class="hw">coherence</span>—<em>not</em> coherency</p>
+<p class="entry"><span class="hw">color names</span>—cap official names of manuf.-specific finishes (Desert Sand, Tropic Jade), l/c generic colors (red, blue, taupe, fuchsia)</p>
+<p class="entry"><span class="hw">Columbia “six-eye”</span>—nickname, always use quotes</p>
+<p class="entry"><span class="hw">Combak</span>—name of company (not Combac)</p>
+<p class="entry"><span class="hw">Compact Disc</span>—initial caps</p>
+<p class="entry"><span class="hw">comparison</span>—between heterogeneous components, use <em>to</em>; when homogeneous, use <em>with</em>. Examples: “Shall I compare thee <em>to</em> a summer’s day”; “JGH compared the sound of the Sony CD player <em>with</em> that of the PS Audio CD player.”</p>
+<p class="entry"><span class="hw">competence</span>—<em>not</em> competency</p>
+<p class="entry"><span class="hw">concision</span>—<em>not</em> conciseness</p>
+<p class="entry"><span class="hw">contractions</span>—generally use them—they’re, it’s, he’ll, etc.</p>
+<p class="entry"><span class="hw">cost-effective</span>—always hyphenate</p>
+<p class="entry"><span class="hw">counterintuitive</span>—one word</p>
+<p class="entry"><span class="hw">criteria</span>—plural of <em>criterion</em></p>
+<p class="entry">crosstalk</p>
+<p class="entry"><span class="hw">cueing</span>—<em>not</em> cuing</p>
+<p class="entry">CVTerminators</p>
+<h3 class="letter" id="dir-D">D</h3>
+<p class="entry"><span class="hw">DAC</span>—digital-to-analog converter. No need to spell out; however, “D/A converter” is also acceptable.</p>
+<p class="entry"><span class="hw"><em>D</em><em>ä</em><em>fos</em></span>—album title: italics, diaeresis over <em>a</em></p>
+<p class="entry"><span class="hw">damp</span>—as in damping a signal or resonance; <em>not</em> dampen, which means to moisten</p>
+<p class="entry"><span class="hw">data</span>—always treat as plural</p>
+<p class="entry">database</p>
+<p class="entry">datastream</p>
+<p class="entry"><span class="hw">dB</span>—as shown; close up with numbers: 34dB</p>
+<p class="entry"><span class="hw">DC</span>—for direct current; <em>not</em> D/C or D.C. Also permitted as a shorthand for “Washington, DC” on proximate repeats after being spelled out the first time.</p>
+<p class="entry"><span class="hw">de rigueur</span>—note spelling; no italics</p>
+<p class="entry"><span class="hw">decimals</span>—for clarity, put 0 before a decimal figure of less than 1.0: 0.0005, not .0005</p>
+<p class="entry"><span class="hw">de-emphasis</span>—hyphen</p>
+<p class="entry">deejay, not DJ</p>
+<p class="entry"><span class="hw">déjà vu</span>—note accents; no italics</p>
+<p class="entry">dialog, not dialogue</p>
+<p class="entry">dielectric</p>
+<p class="entry"><span class="hw">DIP switch</span>—DIP stands for Dual In-line Package and refers to integrated circuits. Dual means there are two rows of connecting pins, In-line means that each row of pins is a straight line</p>
+<p class="entry"><span class="hw">directions</span>—cap when formal name of region, not when region is informal: North Dakota, but southern Oregon; l/c when used as compass direction: north, south, east, west</p>
+<p class="entry"><span class="hw">disc</span>—Compact Disc, LP, laserdisc</p>
+<p class="entry"><span class="hw">disk</span>—computer floppy disk, hard disk</p>
+<p class="entry"><span class="hw">dither</span>—noise deliberately inserted at a digital system’s LSB level</p>
+<p class="entry"><span class="hw">DLNA</span>—no need to spell out</p>
+<p class="entry">Dolby-B</p>
+<p class="entry">Dolby-C</p>
+<p class="entry">Dolby Hx-Pro</p>
+<p class="entry">Dolby S</p>
+<p class="entry">double bass</p>
+<p class="entry">drive belt</p>
+<p class="entry"><span class="hw">drive unit</span>—2 words as noun, hyphenate as adjective</p>
+<p class="entry"><span class="hw">DSD</span>—no need to spell out</p>
+<p class="entry">dustcap</p>
+<h3 class="letter" id="dir-E">E</h3>
+<p class="entry"><span class="hw">each</span>—abbreviate ea., as in $299/ea.</p>
+<p class="entry"><span class="hw">EEPROM</span>—electrically erasable programmable read-only memory</p>
+<p class="entry"><span class="hw">eg</span>—abbreviation of Latin <em>exempli gratia</em>, meaning <em>for example</em>; no italics, no periods; always followed by a comma</p>
+<p class="entry">endcap</p>
+<p class="entry">email</p>
+<p class="entry"><span class="hw">email addresses</span>—All letters in an email address are lowercase.</p>
+<p class="entry">England, UK (add “UK” in spec box addresses)</p>
+<p class="entry"><span class="hw">et al</span>—abbreviation of Latin <em>et alii</em> (masculine), <em>et aliae</em> (feminine), or <em>et alia</em> (neuter), meaning <em>and others</em>; no italics, no periods</p>
+<p class="entry"><span class="hw">extravert</span>—<em>not</em> extrovert</p>
+<p class="entry">extruded-aluminum case</p>
+<h3 class="letter" id="dir-F">F</h3>
+<p class="entry">faceplate</p>
+<p class="entry"><span class="hw">fax</span>—l/c</p>
+<p class="entry"><span class="hw">ffrr</span>—l/c</p>
+<p class="entry"><span class="hw">fiber optic</span>—<em>not</em> fiber-optic</p>
+<p class="entry"><span class="hw">Fig.1, fig.2</span>—cap only if begins a sentence. Close up space between <em>fig.</em> and number.</p>
+<p class="entry"><span class="hw">figure-8</span>—always numeral, to retain figurative meaning</p>
+<p class="entry"><span class="hw">fingerlift</span>—close up (noun)</p>
+<p class="entry"><span class="hw">flat</span>—use hyphen and cap <em>E</em> in E-flat</p>
+<p class="entry"><span class="hw">floorstanding</span>—one word</p>
+<p class="entry"><span class="hw">flugelhorn</span>—no diaeresis over <em>u</em>, or <em>e</em> after <em>u</em></p>
+<p class="entry">Fluxbuster</p>
+<p class="entry">flux damper</p>
+<p class="entry">footlambert (fL)</p>
+<p class="entry">fourth-order</p>
+<p class="entry"><span class="hw">fractions</span>—no wordspace between full numbers and fractions. Use superscripts, subscripts, and true fraction bar (not slash or virgule) to build fractions: Example: “thirteen and three-fourths” = 133⁄4, <em>not</em> 13 3/4 or 133/4 or 13 3⁄4.</p>
+<p class="entry">freelance</p>
+<p class="entry">frequency-response curve</p>
+<p class="entry"><span class="hw">front end</span>—2 words as noun, hyphenate as adjective</p>
+<p class="entry"><span class="hw">front panel</span>—2 words as noun, hyphenate as adjective</p>
+<p class="entry"><span class="hw">front plate</span>—2 words as noun, hyphenate as adjective</p>
+<p class="entry"><span class="hw">functions</span>—initial cap when actual name of function key: Mute, On/Off, Play, Pause, etc.</p>
+<p class="entry"><span class="hw">Furtwängler</span>—note diaeresis over <em>a</em></p>
+<h3 class="letter" id="dir-G">G</h3>
+<p class="entry"><span class="hw">gaffe</span>—faux pas (not <em>gaff</em>, which has multiple nautical meanings, none apt)</p>
+<p class="entry"><span class="hw">gain-stage</span>—with hyphen</p>
+<p class="entry"><span class="hw">gestalt</span>—no italics, no cap <em>g</em></p>
+<p class="entry"><span class="hw">gigabit</span>—Gb</p>
+<p class="entry"><span class="hw">gigaByte</span>—GB</p>
+<p class="entry"><span class="hw">Górecki</span>—note acute accent</p>
+<p class="entry"><span class="hw"><em>Götterdämmerung</em></span>—note diaereses, italics</p>
+<p class="entry"><span class="hw">goose bumps</span>—two words</p>
+<p class="entry">grille</p>
+<p class="entry"><span class="hw">grillecloth, grillecover</span>—one word</p>
+<h3 class="letter" id="dir-H">H</h3>
+<p class="entry"><span class="hw">half</span>—use 0.5dB, 1⁄2&quot;, half the people</p>
+<p class="entry">halftrack</p>
+<p class="entry"><span class="hw">Harman/Kardon</span>—the company lower-cases the <em>H</em> and <em>K</em>, but we don’t; the name also still needs the slash; although the company sometimes omits it, mostly they still include it</p>
+<p class="entry">hardwired</p>
+<p class="entry"><span class="hw">HDCD</span>—no trademark necessary</p>
+<p class="entry"><span class="hw">heatsink, heatsinking</span>—one word</p>
+<p class="entry"><span class="hw">hertz</span>—no cap when spelled out; Hz otherwise, with no space: 100Hz</p>
+<p class="entry"><span class="hw">hi-fi</span>—high fidelity (noun), high-fidelity (adjective)</p>
+<p class="entry"><span class="hw">hi-rez</span>—high-resolution (abbreviation style parallels <em>hi-fi</em>)</p>
+<p class="entry"><span class="hw">High End</span>—initial caps if noun</p>
+<p class="entry"><span class="hw">high-end</span>—if modifier</p>
+<p class="entry"><span class="hw">home theater</span>—no initial caps</p>
+<p class="entry">home-theater (l/c as adj.)</p>
+<p class="entry"><span class="hw">However, etc.</span>—Always use commas around <em>however</em> or <em>though</em> unless the word is being used as a qualifier: “I, however, would have let the matter rest,” <em>but</em> “The marbles, however round they may be, do not roll true.”
+</p>
+<h3 class="letter" id="dir-I">I</h3>
+<p class="entry"><span class="hw">ie</span>—abbreviation of Latin <em>id est</em>, meaning <em>that is</em>; no italics, no periods, always preceded by at least a semicolon</p>
+<p class="entry"><span class="hw">IEC</span>—no need to spell out</p>
+<p class="entry"><span class="hw">Inc.</span>—follow with period</p>
+<p class="entry">indispensable</p>
+<p class="entry"><span class="hw">infrared</span>—not infra-red or infra red; abbrev. IR</p>
+<p class="entry"><span class="hw">initials</span>—use periods but not use spaces: J.G. Brown, J.S. Bach</p>
+<p class="entry">inverted-dome tweeter</p>
+<p class="entry">internet, net</p>
+<p class="entry"><span class="hw">issues of <em>Stereophile</em></span>—refer to as March 2012, Vol.35 No.3, p.155, etc. When issue is recent (2 years ago or less), stating month and year can suffice.</p>
+<h3 class="letter" id="dir-J">J</h3>
+<p class="entry">jewelbox</p>
+<p class="entry">jitter box</p>
+<p class="entry">jitter-reduction box</p>
+<p class="entry">JoLida</p>
+<p class="entry">joule</p>
+<p class="entry">Jr. (no comma before)</p>
+<p class="entry"><span class="hw">judgment</span>—not <em>judgement</em></p>
+<h3 class="letter" id="dir-K">K</h3>
+<p class="entry"><span class="hw">k ohms</span>—no space between number and k, space before ohms: 1k ohm, 30k ohms</p>
+<p class="entry"><span class="hw">kbit, kb</span>—kilobite: l/c <em>b</em>, close up (5kbit, 6kb)</p>
+<p class="entry"><span class="hw">kbyte, kB</span>—kilobyte: UC <em>B</em>, close up (7kbyte, 7kB )</p>
+<p class="entry"><span class="hw">k.d. lang</span>—all lowercase</p>
+<p class="entry"><span class="hw">Kevlar</span>—trade name</p>
+<p class="entry"><span class="hw">keypad</span>—one word</p>
+<p class="entry"><span class="hw">kHz</span>—kilohertz: U/lc <em>Hz</em>, close up (5kHz); combo kHz and dB, put comma after kHz number: a 20kHz, 3dB signal</p>
+<p class="entry">kickdrum</p>
+<p class="entry"><span class="hw">Kimber Kable</span>—manufacturer name</p>
+<p class="entry">knowledgeable</p>
+<p class="entry"><span class="hw">kudos</span>—always singular in construction, as this is a noncountable noun; no such things as <em>one</em><em> </em><em>kudo</em> or <em>two</em><em> </em><em>kudos</em></p>
+<h3 class="letter" id="dir-L">L</h3>
+<p class="entry"><span class="hw">laid-back</span>—always hyphenated</p>
+<p class="entry"><span class="hw">laserdisc</span>—one word</p>
+<p class="entry">laser power</p>
+<p class="entry"><span class="hw">lb</span>—pounds; never spelled out, no period</p>
+<p class="entry"><span class="hw">LCD</span>—liquid-crystal display (never LCD display; better, LCD screen or monitor) </p>
+<p class="entry"><span class="hw">LED</span>—light-emitting diode</p>
+<p class="entry"><span class="hw">lied (singular), lieder (plural)</span>—German for <em>art</em><em> </em><em>song</em>; no italics, no caps</p>
+<p class="entry"><span class="hw">lifelike</span>—one word</p>
+<p class="entry">line stage (noun), line-stage (adjective)</p>
+<p class="entry">listening room</p>
+<p class="entry"><span class="hw">lo-rez</span>—low resolution (noun), low-resolution (adjective) (abbreviation style parallels <em>hi-fi</em>, <em>hi-rez</em>)</p>
+<p class="entry">low output impedance</p>
+<p class="entry">lower-midrange (adjective), lower midrange (noun)</p>
+<p class="entry">LucasArts</p>
+<p class="entry">Lucasfilm</p>
+<h3 class="letter" id="dir-M">M</h3>
+<p class="entry"><span class="hw">M•A</span>—record label</p>
+<p class="entry"><span class="hw">macrodynamics</span>—close up</p>
+<p class="entry"><span class="hw">Macintosh</span>—computer manufacturer; note lower-case <em>i</em>, and: <em>Mac</em>, not <em>Mc</em></p>
+<p class="entry"><span class="hw">Magnepan, Magneplanar</span>—company name, product name; not <em>Magn</em><em>a</em><em>pan</em>, <em>Magn</em><em>a</em><em>planar</em></p>
+<p class="entry"><span class="hw">McIntosh Laboratory</span>—manufacturer; okay to shorten to McIntosh Lab (not <em>Labs</em>) following first full mention; note UC <em>I</em>, and: <em>Mc</em>, not <em>Mac</em></p>
+<p class="entry"><span class="hw">MartinLogan</span>—no hyphen, close up</p>
+<p class="entry"><span class="hw">MDF</span>—no need to spell out</p>
+<p class="entry"><span class="hw">MHz</span>—Megahertz (1MHz = 1000 hertz)</p>
+<p class="entry"><span class="hw">mHz</span>—millihertz (1mHz = 0.001 hertz)</p>
+<p class="entry"><span class="hw">microlevel</span>—close up</p>
+<p class="entry"><span class="hw">microdynamics</span>—close up</p>
+<p class="entry"><span class="hw">micron</span>—use the symbol µ for mu, indicating millionths of the unit of measurement specified: microsecond (0.000001µs), microfarad (0.000001µF), micrometer (0.000001µm), etc.</p>
+<p class="entry">microprocessor</p>
+<p class="entry"><span class="hw">mid</span>—note that, except in a few instances of informal shorthand (“the mids were recessed”), <em>mid</em> is not actually a word but a prefix; default style is to close up such prefixes to the word they modify, as in most of the following examples</p>
+<p class="entry"><span class="hw">midband</span>—close up</p>
+<p class="entry"><span class="hw">midbass</span>—close up</p>
+<p class="entry"><span class="hw">mid-fi</span>—hyphenate</p>
+<p class="entry">midrange</p>
+<p class="entry"><span class="hw">midsize</span>—of intermediate size (<em>not</em> midsized)</p>
+<p class="entry">mid-treble</p>
+<p class="entry"><span class="hw">mike</span>—for microphone (<em>not</em> mic)</p>
+<p class="entry"><span class="hw">minimonitor</span>—close up</p>
+<p class="entry"><span class="hw">Mk.2</span>—period, no space</p>
+<p class="entry"><span class="hw">MLSSA</span>—acronym for DRA Laboratories’ Maximum-Length Sequence System Analyzer, the loudspeaker industry’s standard measuring system; pronounced <em>Melissa</em>, so precede with <em>a</em>, not <em>an</em></p>
+<p class="entry"><span class="hw"><em>moll</em></span>—German for <em>minor</em><em> </em><em>key</em>, as in <em>C-moll</em> (C minor or c)</p>
+<p class="entry">monoblock, not monobloc</p>
+<p class="entry"><span class="hw">Montreal</span>—<em>no</em><em>t</em> Montréal, except when accent appears in proper noun that includes Montréal</p>
+<p class="entry"><span class="hw">moving coil</span>—no hyphen, abbreviate MC</p>
+<p class="entry"><span class="hw">moving magnet</span>—no hyphen, abbreviate MM</p>
+<p class="entry"><span class="hw">MQA</span>—Master Quality Authenticated. Spell out on first reference.</p>
+<p class="entry"><span class="hw">multi</span>—unite with modified word (multipath, multibit, multichannel, etc.), except when followed by vowel (multi-intellectual, multi-author, etc.)</p>
+<p class="entry"><span class="hw">Muzak</span>—trade name</p>
+<p class="entry"><span class="hw">mV</span>—millivolts</p>
+<h3 class="letter" id="dir-N">N</h3>
+<p class="entry"><span class="hw">NAD</span>—audio co.; use NAD Electronics on first reference</p>
+<p class="entry">Naim</p>
+<p class="entry"><span class="hw">naïve, naïveté</span>—note diaereses</p>
+<p class="entry"><span class="hw">names starting with “The”</span>—When the official name of a musical group starts with an article (The National, The Who), the first letter of the article is capped, as it would be in any title. Note, however, that sometimes the &quot;the&quot; is just a &quot;the.&quot; E.g., &quot;We reviewed the Who album in last month&#x27;s issue.”</p>
+<p class="entry"><span class="hw">nearfield</span>—noun and adjective forms</p>
+<p class="entry"><span class="hw">New York Philharmonic or NYP</span>—<em>not</em> New York Philharmonic Orchestra or NYPO</p>
+<p class="entry"><span class="hw">the <em>New York Times</span>—</em>not <em>The New York Times</em></p>
+<p class="entry"><span class="hw">No.</span>—no space after period: No.1, No.2, etc., except with plural: Nos. 1–3, Nos. 5 and 7, etc.</p>
+<p class="entry"><span class="hw">noisefloor</span>—one word</p>
+<p class="entry">noiseshape, noiseshaper, noiseshaping</p>
+<p class="entry"><span class="hw">non</span>—no hyphen unless preceding a proper name, or needed for clarity</p>
+<p class="entry"><span class="hw">noncommittal</span>—watch spelling</p>
+<p class="entry"><span class="hw">numbers &amp; prices</span>—use comma only for numbers of five or more digits: 9999, 10,000</p>
+<p class="entry"><span class="hw">numbers 1) or 2)</span>—our style for enclosed numbers, not: (1) or 2.</p>
+<h3 class="letter" id="dir-O">O</h3>
+<p class="entry"><span class="hw">o’clock</span>—no hyphen, even as modifier (5 o’clock whistle, not 5-o’clock whistle)</p>
+<p class="entry"><span class="hw">offstage</span>—one word</p>
+<p class="entry"><span class="hw">ohms</span>—space between <em>k</em> and <em>ohms</em> or number and <em>ohms</em>: 4 ohms, 47k ohms</p>
+<p class="entry"><span class="hw">okay</span>—not OK</p>
+<p class="entry"><span class="hw">online</span>—one word</p>
+<p class="entry"><span class="hw">onstage</span>—one word</p>
+<p class="entry">Op.91 (don’t spell out <em>Opus</em>)</p>
+<p class="entry"><span class="hw">Opp.</span>—for opuses, plural of opus or Op.</p>
+<p class="entry">Optilink</p>
+<p class="entry"><span class="hw">Ötvös</span>—note diaereses</p>
+<p class="entry"><span class="hw">oversampling</span>—use hyphen between number and word: 8x-oversampling</p>
+<h3 class="letter" id="dir-P">P</h3>
+<p class="entry"><span class="hw">page numbers</span>—p.63 or pp.65–70, not page 63 or pages 65–70 or p. 65–70</p>
+<p class="entry"><span class="hw">pair</span>—$250/pair</p>
+<p class="entry">pair-matching</p>
+<p class="entry"><span class="hw">palate</span>—roof of mouth, personal taste</p>
+<p class="entry"><span class="hw">palette</span>—range of visual or aural colors, as in <em>artist</em><em>’</em><em>s</em><em> </em><em>palette</em></p>
+<p class="entry"><span class="hw">pallet</span>—portable shipping platform or hard bed; wooden flat-bladed instrument</p>
+<p class="entry"><span class="hw">Pärt, Arvo</span>—note diaeresis</p>
+<p class="entry"><span class="hw">PCM</span>—no need to spell out</p>
+<p class="entry"><span class="hw">peak-to-peak</span>—hyphenate when modifying a noun: peak-to-peak voltage; not peak–peak</p>
+<p class="entry"><span class="hw">PEQ</span>—parametric EQ. Spell out on first reference.</p>
+<p class="entry"><span class="hw">per</span>—use slash, as in $12/foot</p>
+<p class="entry"><span class="hw">percent</span>—never spell out; use %</p>
+<p class="entry"><span class="hw">period</span>—always followed by one wordspace, never two</p>
+<p class="entry"><span class="hw">per se</span>—no italics</p>
+<p class="entry">phase-locked loop (PLL)</p>
+<p class="entry"><span class="hw">Philips</span>—company name</p>
+<p class="entry"><span class="hw">Phillips</span>—name of screwdriver, late audio writer Wes Phillips and many other people</p>
+<p class="entry"><span class="hw">phono stage</span>—not phonostage</p>
+<p class="entry"><span class="hw">piano-black, piano-white</span>—hyphenate when used as compound adjective: the speaker’s piano-black finish</p>
+<p class="entry">pickup arm</p>
+<p class="entry"><span class="hw">picoseconds</span>—spell out on first mention, <em>ps</em> thereafter—32ps</p>
+<p class="entry"><span class="hw">pin 2, pin 3</span>—parts of a chip (use numerals; don’t spell out)</p>
+<p class="entry">pivoted tonearm</p>
+<p class="entry"><span class="hw">Plácido Domingo</span>—note accute accent</p>
+<p class="entry"><span class="hw"><em>portamento</em>, <em>portamenti</em></span>—italics for musical term meaning to slide from note to note</p>
+<p class="entry"><span class="hw">Plurals ending in <em>s</em></span>—add <em>es</em> if pluralization adds a syllable, as in <em>CESes</em></p>
+<p class="entry">pole-piece</p>
+<p class="entry">PolyKevlar</p>
+<p class="entry"><span class="hw">precision</span>—<em>not</em> preciseness</p>
+<p class="entry">precision machine tool</p>
+<p class="entry"><span class="hw">pre-emphasis</span>—hyphen</p>
+<p class="entry"><span class="hw">price/performance ratio</span>—<em>not</em> price:performance ratio</p>
+<p class="entry"><span class="hw">ProAc</span>—company name</p>
+<p class="entry"><span class="hw">proven</span>—in most cases instead of <em>proved</em></p>
+<p class="entry"><span class="hw">publications</span>—titles of in italic</p>
+<p class="entry"><span class="hw">pushbutton</span>—one word</p>
+<h3 class="letter" id="dir-R">R</h3>
+<p class="entry">Rachmaninoff, not Rachmaninov</p>
+<p class="entry">RadioShack, not Radio Shack</p>
+<p class="entry"><span class="hw">raison d’être</span>—not italics, note circumflex</p>
+<p class="entry"><span class="hw">ratio</span>—use slash, not colon: price/performance ratio (otherwise they crash)</p>
+<p class="entry">rear-firing metal dome</p>
+<p class="entry"><span class="hw">rear wall</span>—two words</p>
+<p class="entry"><span class="hw">re-create or re-creation</span>—hyphenated when indicating a second creation (as opposed to relaxing leisure activity)</p>
+<p class="entry"><span class="hw">reenter</span>—no hyphen</p>
+<p class="entry"><span class="hw">reflash, reflashed, reflashing</span>—one word, no hyphen</p>
+<p class="entry">repeatability</p>
+<p class="entry">rereleases</p>
+<p class="entry"><span class="hw">RIAA</span>—Recording Industry Association of America (always abbreviate)</p>
+<p class="entry"><span class="hw">risetime</span>—one word</p>
+<p class="entry"><span class="hw">R&amp;B</span>—rhythm and blues</p>
+<p class="entry"><span class="hw">RMS</span>—real music signal</p>
+<p class="entry">rock’n’roll</p>
+<p class="entry">rolloff (noun, adj.), roll off (verb)</p>
+<p class="entry"><span class="hw">Rolls-Royce</span>—note hyphen</p>
+<p class="entry"><span class="hw">Row</span>—cap <em>R</em> on specific reference; sat in Row 5</p>
+<p class="entry"><span class="hw">rpm</span>—no space between digits &amp; letters: 500rpm</p>
+<h3 class="letter" id="dir-S">S</h3>
+<p class="entry"><span class="hw">Saint-Saëns</span>—note hyphen and diaeresis</p>
+<p class="entry"><span class="hw"><em>Scherzo</em></span>—cap <em>S</em> when title of musical movement</p>
+<p class="entry"><span class="hw">schmear</span>—not <em>schmeer</em> or <em>schmier</em></p>
+<p class="entry"><span class="hw">‘scope</span>—abbreviation for oscilloscope</p>
+<p class="entry"><span class="hw">SDIF</span>—Sony digital data format with separate word clock</p>
+<p class="entry">sealed-box system</p>
+<p class="entry"><span class="hw">second</span>—not <em>secondly</em></p>
+<p class="entry"><span class="hw"><em>The</em><em> </em><em>$ensible</em><em> </em><em>Sound</em></span>—dollar sign is part of magazine’s title</p>
+<p class="entry"><span class="hw">setup</span>—as noun or adjective, one word</p>
+<p class="entry"><span class="hw">set up</span>—as verb, two words</p>
+<p class="entry"><span class="hw">set-up</span>—as in “a perfectly set-up system”</p>
+<p class="entry"><span class="hw">sharp</span>—use hyphen and cap <em>C</em> in C-sharp major, or number symbol: C#</p>
+<p class="entry">sharp-edged definition</p>
+<p class="entry">sidewall</p>
+<p class="entry">signal/noise ratio</p>
+<p class="entry"><span class="hw">sinewave</span>—one word</p>
+<p class="entry"><span class="hw">sliderule</span>—one word</p>
+<p class="entry"><span class="hw">smartphone</span>—one word</p>
+<p class="entry"><span class="hw">solid state</span>—no hyphen as noun or adjective</p>
+<p class="entry"><span class="hw">Sonus faber</span>—note lc f</p>
+<p class="entry">sound-pressure meter</p>
+<p class="entry">soundfield</p>
+<p class="entry">soundfloor</p>
+<p class="entry">soundsource</p>
+<p class="entry">soundspace</p>
+<p class="entry">soundstage</p>
+<p class="entry">soundtrack</p>
+<p class="entry"><span class="hw">S/PDIF</span>—Sony/Philips Digital Interface Format</p>
+<p class="entry"><span class="hw">SPL</span>—sound pressure level; plural, SPLs</p>
+<p class="entry"><span class="hw">squarewave</span>—one word</p>
+<p class="entry"><span class="hw">SRA</span>—stylus rake angle</p>
+<p class="entry">ST-optical</p>
+<p class="entry">ST-type</p>
+<p class="entry">standing-wave distribution</p>
+<p class="entry"><span class="hw">standmount</span>—one word</p>
+<p class="entry"><span class="hw">state names</span>—spell out except in addresses, in which case use two-letter postal abbreviations</p>
+<p class="entry"><span class="hw">Straight Wire</span>—company is two separate words</p>
+<p class="entry"><span class="hw">strokes (not strikes)</span>—refers to percussion, lightning</p>
+<p class="entry">subchassis</p>
+<p class="entry">subenclosure (no hyphen)</p>
+<p class="entry">subwoofer</p>
+<p class="entry"><span class="hw">Super Bit Mapping</span>—Sony trademark; spell &amp; cap as shown.</p>
+<p class="entry"><span class="hw">surround sound</span>—no hyphen, except when used adjectivally</p>
+<p class="entry"><span class="hw">Symphony</span>—capped when speaking of specific work; primary style is <em>Beethoven</em><em>’</em><em>s</em><em> </em><em>Symphony</em><em> </em><em>5</em>; use <em>Beethoven</em><em>’</em><em>s</em><em> </em><em>Fifth</em><em> </em><em>Symphony</em> occasionally for variety; but <em>the</em><em> </em><em>symphonies</em><em> </em><em>of</em><em> </em><em>Beethoven</em></p>
+<h3 class="letter" id="dir-T">T</h3>
+<p class="entry"><span class="hw">TARA Labs</span>—The Absolute Reference Audio Labs</p>
+<p class="entry"><span class="hw"><em>TAS</em></span>—publication: <em>The </em><em>Abso</em><em>l</em><em>ute</em><em> Sound</em></p>
+<p class="entry"><span class="hw">telephone numbers, foreign</span>—treat two-digit country code as area code; <em>ie</em>, enclose in parentheses. Others: (508) 782-3549</p>
+<p class="entry"><span class="hw">tempos</span>—plural of <em>tempo</em>; not <em>tempi</em></p>
+<p class="entry"><span class="hw">test CD</span>—italicize titles of <em>Stereophile</em>’s <em>Test</em><em> </em><em>CD</em>, <em>Test</em><em> </em><em>CD</em><em> </em><em>2</em>, <em>Test</em><em> </em><em>CD</em><em> </em><em>3</em>; note space between CD and number.</p>
+<p class="entry"><span class="hw">“The”</span>—When the official name of a musical group starts with an article (The National, The Who), the first letter of the article is capped, as it would be in any title. Note, however, that sometimes the &quot;the&quot; is just a &quot;the.&quot; E.g., &quot;We reviewed the Who album in last month&#x27;s issue.”</p>
+<p class="entry"><span class="hw"><em>The Absolute Sound</em></span>—abbrev. <em>TAS</em></p>
+<p class="entry"><span class="hw">thoughts</span>—in text, when writer presents interior dialogue as a thought: <em>italics</em>, no quotes</p>
+<p class="entry"><span class="hw">through-composed</span>—music that fully written out, not improvised</p>
+<p class="entry"><span class="hw">timbral</span>—of or referring to timbre (not <em>timbrel</em>, which is a small drum)</p>
+<p class="entry">time-align</p>
+<p class="entry"><span class="hw">time</span>—3am or 6pm: close up, no periods</p>
+<p class="entry"><span class="hw">times</span>—128x-oversampling is style, meaning 128 times</p>
+<p class="entry">timpani, not <em>tympani</em> (kettledrums)</p>
+<p class="entry"><span class="hw">TM</span>—immediately follows the name trademarked; punctuation follows</p>
+<p class="entry"><span class="hw">toe-in</span>—hyphenate as noun, open as verb</p>
+<p class="entry"><span class="hw">tonearm</span>—one word</p>
+<p class="entry">top end</p>
+<p class="entry"><span class="hw">top-notch</span>—hyphen</p>
+<p class="entry"><span class="hw">top plate</span>—open as noun, hyphenate as adjective</p>
+<p class="entry"><span class="hw">toroidal</span>—one <em>r</em></p>
+<p class="entry"><span class="hw">TosLink</span>—generic name for the EIAJ connector developed by Toshiba; stands for <em>Toshiba</em><em> </em><em>link</em>, so not <em>TOSlink</em> or <em>TOSLink</em> or <em>TOSLINK</em></p>
+<p class="entry"><span class="hw">track 3</span>—on CDs, LPs, etc.: l/c, digit</p>
+<p class="entry"><span class="hw">tranquility</span>—one <em>l</em></p>
+<p class="entry"><span class="hw">traveling</span>—one <em>l</em></p>
+<p class="entry"><span class="hw">triwire</span>—close up</p>
+<p class="entry"><span class="hw">try to</span>—not <em>try</em><em> </em><em>and</em></p>
+<p class="entry">Tube Traps</p>
+<p class="entry"><span class="hw">turntable</span>—’table for short, but headphones and ’phones for short</p>
+<p class="entry"><span class="hw">tweak or tweakers</span>—generic terms</p>
+<p class="entry"><span class="hw">Tweek</span>—trade name</p>
+<h3 class="letter" id="dir-U">U</h3>
+<p class="entry"><span class="hw">UK</span>—for United Kingdom; not U.K.</p>
+<p class="entry"><span class="hw">ultra</span>—close up with whatever it modifies unless too awkward to read, especially when word modified begins with a vowel</p>
+<p class="entry"><span class="hw">unmistakable</span>—not unmistakeable</p>
+<p class="entry"><span class="hw">upgradable</span>—not upgradeable</p>
+<p class="entry"><span class="hw">US</span>—for United States; not U.S.</p>
+<p class="entry"><span class="hw">µF</span>—microfarad (0.000001F)</p>
+<p class="entry">µs = microsecond (0.000001s)</p>
+<h3 class="letter" id="dir-V">V</h3>
+<p class="entry"><span class="hw">valve</span>—Britishism for vacuum tube; we use <em>tube</em></p>
+<p class="entry"><span class="hw">van den Hul</span>—audio manufacturer, U/lc as typed except Van when it begins sentence; abbreviate vdH</p>
+<p class="entry">VDC</p>
+<p class="entry"><span class="hw">vice</span>—sin, or second in command (Vice President)</p>
+<p class="entry"><span class="hw">vice versa</span>—not <em>vice-versa</em></p>
+<p class="entry"><span class="hw">vis-à-vis</span>—roman, note accent grave</p>
+<p class="entry"><span class="hw">vise</span>—workbench clamp</p>
+<p class="entry"><span class="hw">voilà</span>—roman, note accent grave</p>
+<p class="entry">voice coil</p>
+<p class="entry"><span class="hw">vs</span>—versus: always abbreviate; no italics, no period (not vs. or versus)</p>
+<p class="entry"><span class="hw">VTA</span>—vertical tracking angle</p>
+<p class="entry"><span class="hw">VTF</span>—vertical tracking force</p>
+<h3 class="letter" id="dir-W">W</h3>
+<p class="entry"><span class="hw">Warner Bros.</span>—not <em>Warner</em><em> </em><em>Brothers</em></p>
+<p class="entry"><span class="hw">Washington, DC</span>—note comma after “Washington” and no periods in “DC.” “DC” is permitted as a shorthand on proximate repeats after being spelled out the first time, but it should be spelled out again after several paragraphs have passed.</p>
+<p class="entry"><span class="hw">watt</span>—lowercase when spelled out, abbrev. W</p>
+<p class="entry"><span class="hw">WATT</span>—Wilson Audio Tiny Tot loudspeaker</p>
+<p class="entry">waveform</p>
+<p class="entry">wavelength</p>
+<p class="entry"><span class="hw">Web addresses</span>—All lowercase and include only the essential text: No . So: stereophile.com, not  or . The only time there should be anything in front is if there’s a proxy; e.g., shop.stereophile.com or . </p>
+<p class="entry"><span class="hw">webpage</span>—one word</p>
+<p class="entry">website</p>
+<p class="entry"><span class="hw">weight</span>—cite in lb (space before, no period after). If metric weight is listed, must be <em>in</em><em> </em><em>addition</em><em> </em><em>to</em> weight in lb.</p>
+<p class="entry"><span class="hw">Well Tempered Turntable and Arm</span>—caps, no hyphen</p>
+<p class="entry"><span class="hw">wideband</span>—not <em>wide-band</em></p>
+<p class="entry"><span class="hw">wirable</span>—not <em>wireable</em></p>
+<p class="entry"><span class="hw">Wireworld</span>—not <em>WireWorld</em> or <em>Wire</em><em> </em><em>World</em></p>
+<p class="entry"><span class="hw">word clock</span>—noun, close up; adjective, hyphenate</p>
+<p class="entry">word length</p>
+<p class="entry">World Wide Web</p>
+<p class="entry"><span class="hw">Wpc</span>—watts per channel, as in 30Wpc: closed up, cap W</p>
+<p class="entry">X-Y-Z</p>
+<p class="entry">Xtant Technologies</p>
+<p class="entry"><span class="hw">zip codes</span>—only use in mailing addresses (eg, in Contacts or Specification), not in text.</p>
+    </section>
+    <section data-guide="specs"><h2 class="section">SIDEBARS</h2>
+<p class="body">In each case below, use the style as a template for the items of information to be included, in the order and style indicated:</p>
+<p class="body"><strong>Columns</strong> (manufacturer contact info)</p>
+<h2 class="section">Contacts</h2>
+<p class="body">Manufacturer name in full</p>
+<p class="body">street address</p>
+<p class="body">city, state, zip or other postal code</p>
+<p class="body">country (if outside US)</p>
+<p class="body">Tel: phone number(s), beginning with toll-free number (if any); area code or country code in parentheses</p>
+<p class="body">Web: full URL of home page (no )</p>
+<p class="body">US distributor: follow same style as above for all fields</p>
+<p class="body"><em>Example, US company:</em></p>
+<p class="body">Pass Laboratories Inc.</p>
+<p class="body">13395 New Airport Road, Suite G</p>
+<p class="body">Auburn, CA 95602</p>
+<p class="body">Tel: (530) 878-5350</p>
+<p class="body">Web: passlabs.com</p>
+<p class="body"><em>Example, non-US company:</em></p>
+<p class="body">Spendor Audio Systems Ltd.</p>
+<p class="body">Ropemaker Park, Hailsham</p>
+<p class="body">East Sussex BN27 3GY</p>
+<p class="body">England, UK</p>
+<p class="body">Tel: (44) (0)1323-843-474</p>
+<p class="body">Web: spendoraudio.com</p>
+<p class="body">US distributor: Bluebird Music</p>
+<p class="body">1100 Military Trail</p>
+<p class="body">Kenmore, NY 14217</p>
+<p class="body">Tel: (416) 638-8207</p>
+<p class="body">Web: bluebirdmusic.com</p>
+<p class="body"><strong>Equipment Report Specifications: Templates</strong></p>
+<p class="body">These templates can be pasted into a review and the blanks filled in, added to, and deleted, as appropriate. When in doubt as to style or order, look at a review <em>of this type of component</em> in a recent copy of <em>Stereophile</em>. Note that all of the actual specs will appear in print in a single paragraph, as will: dimensions and weight; price, number of dealers, and warranty; and all Manufacturer and Distributor contact info. For clarity’s sake, they appear here first as separate line items; then, in the examples, as running paragraph text, as they will be printed in the magazine. However, please don’t use bold anywhere; bold is used here only for clarity’s sake.</p>
+<h2 class="section">Specifications in General</h2>
+<p class="body">Not desirable to simply copy or paste in the manuf.’s specs from the manual or website as style issues will arise.</p>
+<p class="body"><strong>Description</strong> Depends on component type: loudspeaker, power amplifier, preamplifier, turntable, etc. See below for templates for specific component types. The remaining Specifications follow this format:</p>
+<p class="body"><strong>Dimensions</strong> inches (mm in parens). List in order of greatest <em>visible</em> dimension when product is viewed from the front: for most speakers, this is the height; for most electronics and turntables, this will be the width. To convert inches to millimeters or vice versa, use one of the standard online calculators; convert-me.com is good.</p>
+<p class="body">Weight: lb (kg in parens)</p>
+<p class="body"><strong>Finish(es)</strong> list standard finishes first; then finishes that require an upcharge.</p>
+<p class="body"><strong>Serial number(s) of unit(s) reviewed</strong></p>
+<h2 class="section">Price</h2>
+<p class="body"><strong>Approximate number of dealers:</strong> US dealers only</p>
+<p class="body"><strong>Warranty:</strong></p>
+<h2 class="section">Manufacturer</h2>
+<p class="body">company name in full</p>
+<p class="body">street address</p>
+<p class="body">city, state, zip or other postal code</p>
+<p class="body">country (if outside US)</p>
+<p class="body">Tel: phone number(s), beginning with toll-free number (if any); area code or country code in parentheses</p>
+<p class="body">Web: full URL of home page (no )</p>
+<p class="body">US distributor (for manufs. not based in US): follow same style as for Manufacturer for all fields.</p>
+<p class="body"><em>Example:</em></p>
+<h2 class="section">Specifications</h2>
+<p class="body">Description Floorstanding, three-way, bass-reflex loudspeaker. Drive units: 1&quot; (25mm) beryllium-dome tweeter with acoustic lens, 5.25&quot; (130mm) DCC aluminum-cone midrange with cast frame, two 8&quot; (200mm) DCC aluminum-cone woofers with cast frames. Crossover frequencies: 260Hz, 2.1kHz. Frequency response: 27Hz–44kHz, –6dB. Nominal impedance: 8 ohms. Sensitivity: 90dB/2.83V/m. Recommended amplification: 50–350W.</p>
+<p class="body">Dimensions 46.5&quot; (1181mm) H by 11.8&quot; (302mm) W by 13.2&quot; (335mm) D. Weight: 82 lb (37.2kg).</p>
+<p class="body">Finishes High Gloss White or Black, Walnut, Metallic Silver.</p>
+<p class="body">Serial numbers of units reviewed CV0000015, CV0000021.</p>
+<p class="body">Price $10,000/pair. Approximate number of dealers: 50.</p>
+<p class="body">Manufacturer Revel, Harman International Industries, 8500 Balboa Boulevard, Northridge, CA 91329. Tel: (888) 691-4171, (516) 594-0300. Web: revelspeakers.com.</p>
+<p class="body"><strong>Equipment Report Specifications:</strong></p>
+<p class="body"><strong>Description Templates for Various Component Types</strong></p>
+<p class="body">{JOHN: Loudspeakers is pretty straightforward, but for all the rest, I have no idea which specs you think are essential and which not. In each case, the vertical list of spec categories has been extracted from the specific full example that appears directly below it. Obviously, every model within each category is unique in terms of features, and <em>especially</em> in terms of how complete or incomplete the manufacturer’s list of specs is. I expect you will greatly massage these lists and examples.—RL}</p>
+<h2 class="section">Loudspeakers</h2>
+<p class="body">Description Floorstanding or Minimonitor, ?-way, bass-reflex or vented loudspeaker.</p>
+<p class="body">Drive units: list in order of frequency bandwidth, highest to lowest, beginning with tweeters; cite diameter in inches and (millimeters), and materials.</p>
+<p class="body">Crossover frequencies</p>
+<p class="body">Frequency response (with ±dB value) and/or frequency range (without ±dB value)</p>
+<p class="body">Impedances: nominal, minimum</p>
+<p class="body">Sensitivity: dB/V/m</p>
+<p class="body">Recommended amplification</p>
+<p class="body"><em>Example:</em></p>
+<p class="body">Description Floorstanding, three-way, bass-reflex loudspeaker. Drive units: 1&quot; (25mm) beryllium-dome tweeter with acoustic lens, 5.25&quot; (130mm) DCC aluminum-cone midrange with cast frame, two 8&quot; (200mm) DCC aluminum-cone woofers with cast frames. Crossover frequencies: 260Hz, 2.1kHz. Frequency response: 27Hz–44kHz, –6dB. Nominal impedance: 8 ohms. Sensitivity: 90dB/2.83V/m. Recommended amplification: 50–350W.</p>
+<h2 class="section">Subwoofers</h2>
+<p class="body">Description Powered or passive subwoofer, sealed or vented cabinet.</p>
+<p class="body">Drive unit(s): follow same style as for Loudspeakers</p>
+<p class="body">Inputs:</p>
+<p class="body">Internal amplifier:</p>
+<p class="body">Input impedance:</p>
+<p class="body">Frequency response:</p>
+<p class="body">Power draw:</p>
+<p class="body"><em>Example:</em></p>
+<p class="body">Description Powered subwoofer with sealed cabinet. Drive unit: 10&quot; (255mm) polypropylene-cone unit with 2&quot; (50mm) voice-coil. Inputs: Left- &amp; right-channel line level and LFE (RCA); (5–24V DC) 12V trigger (3.5mm); left- &amp; right-channel speaker-level (banana); ARC firmware update (Micro-USB); SWT-X wireless receiver. Internal amplifier: 120W RMS, 240W peak. Input impedance: 8.3k ohms unbalanced (RCA), 2k ohms speaker level (banana). Frequency response: 24–200Hz, ±3dB; anechoic in LFE mode. Power draw: 30W typical, 150W max, 4W idle, 0.5W standby. </p>
+<h2 class="section">Turntables</h2>
+<p class="body">Description Number of speeds, type of platter drive, power supply.</p>
+<p class="body">Speeds:</p>
+<p class="body">Wow &amp; flutter:</p>
+<p class="body">Speed accuracy:</p>
+<p class="body"><em>Example:</em></p>
+<p class="body">Description Two-speed, belt-driven turntable with outboard power supply. Speeds: 331⁄3, 45rpm. Wow &amp; flutter: &lt;0.02%. Speed accuracy: 2 parts per million.</p>
+<h2 class="section">Digital Disc Players</h2>
+<p class="body">Description (example:) CD player and D/A processor with remote control.</p>
+<p class="body">Digital inputs:</p>
+<p class="body">Digital outputs:</p>
+<p class="body">Analog outputs:</p>
+<p class="body">Digital formats supported:</p>
+<p class="body">Frequency response:</p>
+<p class="body">Maximum output level:</p>
+<p class="body">Output impedance:</p>
+<p class="body">THD+N:</p>
+<p class="body">Signal/noise:</p>
+<p class="body">Power consumption:</p>
+<p class="body">Tube complement: (if any)</p>
+<p class="body"><em>Example:</em></p>
+<p class="body">Description CD player and D/A processor with remote control. Digital inputs: 1 AES/EBU (XLR), 1 coaxial S/PDIF (RCA), 1 TosLink, 1 USB Class 1 (Type B), 1 USB Class 2 (Type B), 1 SDcard slot for firmware updates, 1 MBL SmartLink (RJ45). Digital outputs: 1 TosLink, 1 coaxial S/PDIF (RCA), 1 AES/EBU (XLR), 1 MBL SmartLink (RJ45). Analog outputs: 1 pair balanced (XLR), 1 pair unbalanced (RCA). Digital formats supported: 16–24 bit/44.1–192kHz PCM; DSD64 (DoP). Frequency response: not specified. Maximum output level: 4V RMS balanced, 2V unbalanced. Output impedance: 200 ohms balanced, 100 ohms unbalanced. THD+N: &lt;0.001%. Signal/noise: &gt;120dBA. Power consumption: &lt;20VA in operating mode, 0.5VA in Standby.</p>
+<h2 class="section">Network Music Players</h2>
+<p class="body">Description</p>
+<p class="body">Formats supported:</p>
+<p class="body">Resolutions supported:</p>
+<p class="body">Inputs:</p>
+<p class="body">Analog outputs:</p>
+<p class="body">Input impedance:</p>
+<p class="body">Frequency response:</p>
+<p class="body">Signal/noise:</p>
+<p class="body">Distortion:</p>
+<p class="body">Output impedances:</p>
+<p class="body">Power consumption:</p>
+<p class="body"><em>Example:</em></p>
+<p class="body">Description Network media server-player with integrated digital-to-analog converter. Formats supported: DSF, DSDIFF (DIFF), DoP, FLAC, Apple Lossless (ALAC), WAV, AIFF, MP3, AAC (M4A container). Roon-certified. No internal storage. Resolutions supported: PCM to 32-bit/768kHz, MQA, DSD to 22.5MHz (USB port only); otherwise, PCM to 24/192, MQA, DSD to 2.8MHz via DoP. Inputs: XLR, RCA, optical, USB Type A (front, rear), USB Type B, Ethernet, BNC clock (44.1kHz–24.576MHz). Analog outputs: balanced (XLR), single-ended (RCA), left and right. Input impedance: 50 ohms. Frequency response (PCM 192kHz): 5Hz–70kHz, –3dB. Signal/noise: 120dB. Distortion: 0.0007% (1kHz). Output impedances: 20 ohms (XLR), 23.5 ohms (RCA). Power consumption: 33W.</p>
+<h2 class="section">Phono Preamplifiers</h2>
+<p class="body">Description</p>
+<p class="body">RIAA accuracy: </p>
+<p class="body">Frequency response: </p>
+<p class="body">Voltage gain:</p>
+<p class="body">Moving-coil sensitivity:</p>
+<p class="body">Input impedance:</p>
+<p class="body">Output voltage:</p>
+<p class="body">Maximum output voltage:</p>
+<p class="body">Output impedance: </p>
+<p class="body">Signal/noise:</p>
+<p class="body">Channel separation:</p>
+<p class="body">Distortion: </p>
+<p class="body">Power consumption:</p>
+<p class="body">Tube complement: (if any)</p>
+<p class="body"><em>Example:</em></p>
+<p class="body">Description Solid-state moving-coil/moving-magnet phono preamplifier with standalone power supply. RIAA accuracy: 20Hz–20kHz, ±0.5dB. Frequency response: 3Hz–150kHz, ±3dB. Voltage gain: 50dB (MM), 62–78dB (MC). Moving-coil sensitivity: 100, 220, 600µV. Input impedance: 47k ohms (MM); 100/470/1000 ohms (MC). Output voltage: High Out, 775mV (0dBm)/22 ohms; Low Out, 220mV/100 ohms. Maximum output voltage: 7V (pp). Output impedance: 50 ohms (High Out), 600 ohms (Low Out). Signal/noise (A-weighted): 80dB (MM), 66dB (MC). Channel separation: &gt;90dB. Distortion (THD, 1kHz, 100mW): &lt;0.08%. Power consumption: &lt;10W.</p>
+<h2 class="section">D/A Processors</h2>
+<p class="body">Description</p>
+<p class="body">Inputs:</p>
+<p class="body">Outputs (line-level):</p>
+<p class="body">Outputs (headphone):</p>
+<p class="body">Output into 600 ohms, balanced/single-ended:</p>
+<p class="body">Tube complement: (if any)</p>
+<p class="body"><em>Example:</em></p>
+<p class="body">Description Tubed/solid-state DAC/headphone amplifier. Tube complement: two GE5670. Inputs: USB, AES3 (XLR, single link), S/PDIF (coaxial/optical combo), BNC multifunction (S/PDIF in or sync input). Outputs (line-level): balanced (XLR), single-ended (RCA). Outputs (headphone): single-ended (3.5mm, 6.3mm), balanced (2.5mm). Output into 600 ohms, balanced/single-ended: &gt;11.2V/&gt;5.6V.</p>
+<h2 class="section">Preamplifiers</h2>
+<p class="body">Description</p>
+<p class="body">Inputs:</p>
+<p class="body">Frequency response and/or frequency range:</p>
+<p class="body">Input impedance:</p>
+<p class="body">Input sensitivity:</p>
+<p class="body">Signal/noise:</p>
+<p class="body">THD:</p>
+<p class="body">Phono EQ RIAA:</p>
+<p class="body">Subsonic filter:</p>
+<p class="body">Tube complement: (if any)</p>
+<p class="body"><em>Example:</em></p>
+<p class="body">Description Modular solid-state and/or tubed preamplifier with slots for 9 input modules slots, 3 output modules, class-A headphone output. Available modules: MM/MC phono preamplifier, asynchronous DAC with inputs (1 USB Type B, 2 coaxial S/PDIF RCA, 1 optical TosLink), supporting PCM up to 32-bit/384kHz, DSD64 (2.8MHz, 5.6MHz); FM, Line in (with or without tone &amp; contour configurability), Line out, Bluetooth. Frequency ranges: 20Hz–100kHz (solid-state), 20Hz–30kHz (tubed). Input impedance, line: 3.4k ohms (RCA), 13.6k ohms (XLR). Input sensitivity, 1V output: 20–450mV (adjustable). Signal/noise: &gt;100dB (solid-state), &gt;90dB (tubed). THD: &lt;0.001% (solid-state), &lt;0.01% (tubed). Phono module: Gain, MM: 43–52dB, input impedance 47k ohms/47–420pF. Gain, MC: 63–72dB, input impedance 63–72dB. Signal/noise, MM (5mV/1kHz): 79 or 84dB (A). Signal/noise, MC (0.5mV/1kHz): 70 or 76 dB (A). Frequency range: &lt;30Hz–100kHz. Phono EQ RIAA: ±0.2dB. Subsonic filter: 20Hz, third-order. Tube complement: 2 AVM 803 T dual triodes. </p>
+<h2 class="section">Power Amplifiers</h2>
+<p class="body">Description</p>
+<p class="body">Power output:</p>
+<p class="body">Input sensitivity:</p>
+<p class="body">THD:</p>
+<p class="body">Damping factor:</p>
+<p class="body">Frequency response and/or frequency range:</p>
+<p class="body">Tube complement: (if any)</p>
+<p class="body"><em>Example:</em></p>
+<p class="body">Description (100V version): Power output: 9Wpc at 5% THD (9.54dBW). Input sensitivity: 290mV at full output. THD: &lt;1% (1kHz/1W/8 ohms). Damping factor: 7 (1kHz/1W/8 ohms). Frequency response: 25Hz–40kHz, –1dB/1W. Tube complement: two 300B, two 12AU7, two 12BH7, one 5U4BG. </p>
+<h2 class="section">Integrated Amplifiers</h2>
+<p class="body">Description</p>
+<p class="body">Analog inputs:</p>
+<p class="body">Digital inputs:</p>
+<p class="body">Outputs:</p>
+<p class="body">Continuous power output:</p>
+<p class="body">Frequency response or frequency range:</p>
+<p class="body">Input impedance:</p>
+<p class="body">Power consumption:</p>
+<p class="body">Tube complement: (if any)</p>
+<p class="body"><em>Example:</em></p>
+<p class="body">Description Two-channel integrated amplifier with optional AES/EBU, S/PDIF, USB, and Roon Ready Ethernet digital inputs. Analog inputs: 1 pair balanced, 2 pairs unbalanced. Digital inputs: 1 coax, 2 TosLink S/PDIF (PCM 16/20/24-bit, 44.1–192kHz, DSD64 on DoP); USB (PCM 16/20/24-bit, 44.1–384kHz, DSD64/DSD128 on DoP); network (PCM 16/20/24-bit, 44.1–192kHz, DSD64); digital. Outputs: 1 pair speaker binding posts; 1 pair each XLR/RCA preamplifier out; 1⁄4&quot; unbalanced headphone, 2x3.5mm balanced headphone, word clock. Continuous power output: 100Wpc into 8 ohms (20dBW). Frequency range: DC–250kHz. Input impedance: 2M ohms, balanced; 1M ohm, unbalanced. Power consumption: 120W operating mode, no signal; 60W in low-current consumption mode.</p>
+<p class="body"><strong>Equipment Reports: Associated Equipment Sidebars</strong></p>
+<h2 class="section">General Guidelines</h2>
+<p class="body">Within each component category, list components alphabetically by manufacturer name, separated by commas. A basic template and an example follow. But first . . .</p>
+<h2 class="section">Exceptions</h2>
+<p class="body">{JOHN, what follows is an expanded version of your e-mail to Art and me of a few weeks ago, with queries by me. However, the more I look at that e-mail, the less sense it makes to me. First, you mentioned only “amplifiers,” never “preamplifiers” or “power amplifiers”; I’ve expanded each case of “amplifier” to specify <em>both</em> subcategories. Also, what, for example, is to be done for the component categories of Assoc. Equip. <em>not</em> specified below? For each of those unnamed categories, list <em>everything</em> in the reviewer’s reference system, or only those used to audition the DUT? This still needs a lot of work and clarification.}</p>
+<p class="body"><em>For reviews of loudspeakers and {preamplifiers and power?} amplifiers:</em></p>
+<p class="body">Analog Sources: List all {&lt;only?} components used in the auditioning.</p>
+<p class="body">Digital Sources: List all {&lt;only?} components used in the auditioning.</p>
+<p class="body">Accessories: List all {&lt;only?} accessories used in the auditioning. </p>
+<p class="body">{but what about everything else?}</p>
+<p class="body"><em>For reviews of loudspeakers:</em></p>
+<p class="body">Preamplification: List only the products used in the auditioning</p>
+<p class="body">Power Amplifiers: List only the products used in the auditioning.</p>
+<p class="body">{but what about analog and digital sources and everything else?}</p>
+<p class="body"><em>For reviews of preamplifiers and power amplifiers:</em></p>
+<p class="body">Loudspeakers: List only the loudspeakers used in the auditioning.</p>
+<p class="body">{but what about analog and digital sources, accessories, etc.?}</p>
+<p class="body"><em>For reviews of digital and analog {source?} components:</em></p>
+<p class="body">Preamplification: List only the products used in the auditioning.</p>
+<p class="body">Power Amplifiers: List only the products used in the auditioning.</p>
+<p class="body">Loudspeakers: List only the products used in the auditioning.</p>
+<p class="body">{and everything else . . . ?}</p>
+<p class="body"><em>For reviews of digital components:</em></p>
+<p class="body">Digital Sources List only the products used for comparison.</p>
+<p class="body">{but what about Analog Sources, Loudspeakers, preamps and power amps, etc.?}</p>
+<p class="body"><em>For reviews of analog components:</em></p>
+<p class="body">Analog Sources: List only the products used for comparison.</p>
+<p class="body"><strong><em>Basic Template:</em></strong></p>
+<h2 class="section">Associated Equipment</h2>
+<p class="body">Analog Sources</p>
+<p class="body">Digital Sources</p>
+<p class="body">Preamplification</p>
+<p class="body">Power Amplifiers</p>
+<p class="body">Integrated Amplifiers</p>
+<p class="body">Loudspeakers</p>
+<p class="body">Headphones</p>
+<p class="body">Cables</p>
+<p class="body">	Digital:</p>
+<p class="body">	Interconnect:</p>
+<p class="body">	Speaker:</p>
+<p class="body">	AC:</p>
+<p class="body">Accessories</p>
+<p class="body">	—reviewer’s byline</p>
+<p class="body"><em>Example:</em></p>
+<h2 class="section">Associated Equipment</h2>
+<p class="body">Analog Sources Garrard 301, Thorens TD 124 turntables; EMT 997, Sorane ZA-12 tonearms; EMT TSD 15, Ortofon SPU A Wood, Shindo SPU pickup heads; EMT TSD 15 N sph, Koetsu Onyx Platinum, MusiKraft Denon DL-103 cartridges.</p>
+<p class="body">Digital Sources Roon Nucleus+ media server, iPad mini running Roon 1.5; Ayre Acoustics C-5xeMP disc player; Chord Electronics Qutest, PS Audio PerfectWave DirectStream D/A processors.</p>
+<p class="body">Power Amplifiers Lamm M1.2 Reference monoblocks.</p>
+<p class="body">Integrated Amplifier Cambridge Audio Edge A.</p>
+<p class="body">Loudspeakers KEF LS50, Rogers LS3/5a (1978), Wharfedale Diamond 11.2, Tidal Akira.</p>
+<p class="body">Headphones Audeze LCD-X.</p>
+<p class="body">Cables Digital: AudioQuest Coffee (USB) &amp; Vodka (Ethernet), generic 15&#x27; TosLink, Esperanto Audio (S/PDIF). Interconnect: Canare (unbalanced). Speaker: AudioQuest K2. Headphone: Audeze balanced, Surf Cables 4-pin XLR–2x3.5mm stereo. AC: AudioQuest Dragon Source &amp; High Current, manufacturers’ own.</p>
+<p class="body">Accessories Target TT-5 equipment racks; Ayre Acoustics Myrtle Blocks; ASC Tube Traps, RPG Abffusor panels; Shunyata Research Dark Field cable elevators; AudioQuest Niagara 1000 &amp; 5000 Low-Z Power/Noise-Dissipation Systems. AC power comes from two dedicated 20A circuits, each just 6&#x27; from breaker box.<strong>—John Atkinson</strong></p>
+<p class="body">Quantities of inputs, outputs, and other items: spell out the count and name the item—“one USB-A, one USB-C,” not “1xA, 1xC” or “2x.” Reserve the multiplication sign (×) for dimensions.</p></section>
+    <section data-guide="records"><p class="body"><strong>Stereophile Style Guide: Record Reviews and Music in General</strong></p>
+<p class="rule">Titles of books, newspapers, magazines, films, TV series or shows, albums, unique musical works, CDs, SACDs, DVDS, are italicized with initial caps. Examples:</p>
+<p class="body"><em>	</em><em>	</em><em>Stereophile</em></p>
+<p class="body">		the<em> Washington Post</em>, the <em>New York Times</em></p>
+<p class="body">		Tolstoy’s <em>War and Peace</em></p>
+<p class="body">		George Lucas’s <em>Star Wars</em></p>
+<p class="body">		the Beatles’ <em>Abbey Road</em></p>
+<p class="body">		Miles Davis’s <em>Kind of Blue</em></p>
+<p class="body">		Rimsky-Korsakov’s <em>Scheherazade</em></p>
+<p class="body">		Puccini’s <em>Madama Butterfly</em></p>
+<p class="body">		the Sheffield <em>Track Record</em></p>
+<p class="body">		<em>The New Yorker</em> but the <em>Chicago Tribune</em></p>
+<p class="body">		a stack of <em>Newsweek</em>s (note roman plural <em>s</em>!)</p>
+<p class="body">		<em>Hamlet</em></p>
+<p class="body"><em>	</em><em>	</em>Dickens’s <em>A Tale of Two Cities</em></p>
+<p class="body">   <em>U</em><em>nique</em> titles of musical works, record albums, books, films, operas, oratorios, plays, tone poems, etc., are italicized:</p>
+<p class="body">		Mozart’s <em>The Magic Flute</em></p>
+<p class="body">		Handel’s <em>Messiah</em></p>
+<p class="body">		Ravel’s <em>Boléro</em></p>
+<p class="body">		Neil Young’s <em>Harvest</em></p>
+<p class="body">   Titles of individual songs (classical, pop, folk, or jazz) or arias, essays, magazine articles, chapter titles, appear in roman, in quotes:</p>
+<p class="body">		“The Star-Spangled Banner”</p>
+<p class="body">		“Nessun dorma”</p>
+<p class="body">		“Like a Rolling Stone”</p>
+<p class="body">    “Norwegian Wood,” from the Beatles’ <em>Rubber Soul</em></p>
+<p class="body"><em>	</em><em>	</em>the column As We See It, in <em>Stereophile</em></p>
+<p class="body">		Poe’s short story “The Purloined Letter”</p>
+<p class="body">		the final episode, “Coming Home,” of the TV series <em>M*A*S*H</em></p>
+<p class="body">   Titles of works of any length identified by the musical form in which they were written take initial caps only:</p>
+<p class="body">		Beethoven’s Fifth Symphony or Symphony 5</p>
+<p class="body">		Bach’s Mass in b</p>
+<p class="body">		Chopin’s Études Op.10</p>
+<p class="body">		Brahms’s Piano Concerto 2</p>
+<p class="body">   Nicknames of works are in quotes:</p>
+<p class="body">		Mozart’s Symphony 41, “Jupiter”</p>
+<p class="body">		Beethoven’s “Moonlight” Sonata</p>
+<p class="body">		Schubert’s “Trout” Quintet</p>
+<p class="body">   Nicknames given <em>by the composer</em> to a symphony or other work in a generic musical form are italicized:</p>
+<p class="body">		Beethoven’s Symphony 3, <em>Eroica</em> and Symphony 6, <em>Pastoral</em></p>
+<p class="body">		Tchaikovsky’s Symphony 6, <em>Pathétique</em></p>
+<p class="body">   Descriptive titles of movements within classical works are italicized with first initial caps:</p>
+<p class="body"><em>	</em><em>	</em><em>Andante</em></p>
+<p class="body">		<em>A</em><em>dagio</em></p>
+<p class="body">		<em>Largo ma non tanto</em></p>
+<p class="body">		<em>Allegro moderato</em></p>
+<p class="rule">Check and confirm all proper nouns: spellings of names of people, groups, companies, products, and titles, including abbreviations, initialisms, and acronyms, including any punctuation or incapping. Rules of thumb: If you’re unsure of a spelling or style, look it up. If you’re <em>sure</em> of a spelling or style, look it up.</p>
+<p class="body">names starting with “The”—When the official name of a musical group starts with an article (The National, The Who), the first letter of the article is capped, as it would be in any title. Note, however, that sometimes the “the” is just a “the.” E.g., “We reviewed the Who album in last month’s issue.”</p>
+<p class="rule">Foreign phrases (musical directions, <em>pianissimo</em>, etc.): italics, <em>unless</em> commonly accepted in English and are in standard dictionaries of US English.</p>
+<p class="rule">Key signatures – capped if major key (Symphony 6 in D), l/c if minor key (Symphony 9 in d); <em>not</em> Symphony 6 in D Major or D-Major, <em>or</em> Symphony 9 in D Minor or d-minor</p>
+<p class="rule">Accents – Be sure to include <em>all</em> accented characters in proper nouns and foreign phrases as they appear in whatever you’re quoting or referring to. These occur even in some words in US English: <em>décor</em>, <em>naïve</em>, <em>café</em>, the prefix <em>über-</em>, etc. In Word, these characters can be found under Insert/Symbol (Alt+i+s). A very useful one-sheet reference to Windows <em>and</em> Macintosh keystroke commands for all commonly used accented characters and other symbols is the “Cross-Platform Keyboard Reference” published some years ago by the <em>London Review of Books</em> as a mousepad (!). I use it many times every day, and have for 15 years now. I have made hi-rez color and black-and-white scans of this. If I have not sent it to you along with this style guide, please ask me for it.</p>
+<p class="body">Note the considerable redundancy built into the three main sections below. This is because most record reviewers review recordings only within <em>one</em> of these sections or families of musical genres. This way, they need to refer to only the section that pertains to their area of expertise.</p>
+<h2 class="section">RECORD REVIEWS: HEAD MATTER</h2>
+<p class="body">There are three basic styles for record-review headings: Classical, Jazz, and everything else. Each is discussed separately below. Note that individual musicians are listed <em>only</em> for Classical and Jazz recordings, and <em>not</em> for recordings of Rock, Pop, Folk, World, etc. Basically, each heading comprises six or seven fields, the fields separated by empty line spaces below:</p>
+<h2 class="section">Classical Head Matter</h2>
+<p class="body">Composer name</p>
+<p class="body">or, for a recital collection of works by various composers performed by the same person, the name of the main performer (in the case of a lieder recital, this would be the singer)</p>
+<p class="body"><em>title</em><em> </em><em>of</em><em> </em><em>primary</em><em> </em><em>work</em><em> </em><em>on</em><em> </em><em>recording,</em><em> </em><em>in</em><em> </em><em>italics</em></p>
+<p class="body">Names of musicians: conductors, orchestras, chamber ensembles, instrumental and vocal soloists, in the following orders:</p>
+<p class="body">Orchestral work: conductor, orchestra (but in the case of work for orchestra and soloists, the conductor is listed <em>last</em>)</p>
+<p class="body">Chamber work: name of ensemble (Juilliard Quartet); or list of soloists, followed by a comma and instrument, followed by semicolon.</p>
+<p class="body">In general, we follow the standard order of instrument types: woodwinds, brass, strings percussion (<em>percussion</em> includes piano and other keyboard instruments).</p>
+<p class="body">Within each of those families, individual instrument types are listed from higher range to lower range: eg, piccolo, flute, oboe, clarinet, English horn; trumpet, horn, trombone, tuba; violin, viola, cello, double bass; etc.</p>
+<p class="body">Voices are also listed from highest to lowest: soprano, alto/mezzo-soprano, tenor, baritone, bass</p>
+<p class="body">Record label and catalog number</p>
+<p class="body"># and type of disc and/or digital file type and resolution (all in parens)</p>
+<p class="body">year of release; if reissue, year of original release/year of reissue</p>
+<p class="body">names of recording producers;</p>
+<p class="body">names of recording engineers;</p>
+<p class="body">names of recording masterers;</p>
+<p class="body">names of recording mixers.</p>
+<p class="body">Performance rating: how many stars (*) out of a total of five? half-stars acceptable</p>
+<p class="body">Sonics rating: how many stars (*) out of a total of five? half-stars acceptable</p>
+<p class="body"><em>Examples: </em><em>[[Please note that on 26 November 2019, I modified these examples to exclude the SPARS code and the timing. I will also note that in the era of downloads, the product identifier is close to obsolete; on physical formats it is usually present, but although there have been proposals, including one from an AES committee, there is no established system for uniquely identifying provenance of high-rez downloads. This is a serious problem, but one currently without a solution. The guidance here, in the case of downloads, is to be as specific as possible: Indicate source (i.e., HD Tracks), resolution and bit depth, and any other information provided on the site.]]</em></p>
+<p class="body">Beethoven</p>
+<p class="body"><em>Symphony 1</em></p>
+<p class="body">Mariss Jansons, Bavarian Radio Symphony Orchestra &amp; Chorus</p>
+<p class="body">BR Klassik 900167 (CD). 2018. Wilhelm Meister, prod.; Peter Urban, eng. </p>
+<p class="body">Performance **</p>
+<p class="body">Sonics ****</p>
+<p class="body">Mahler</p>
+<p class="body"><em>Symphony 2</em></p>
+<p class="body">Anja Harteros, soprano; Bernarda Fink, mezzo-soprano; Bavarian Radio Symphony Orchestra &amp; Chorus, Mariss Jansons</p>
+<p class="body">BR Klassik 900167 (CD). 2018. Wilhelm Meister, prod.; Peter Urban, eng. </p>
+<p class="body">Performance **</p>
+<p class="body">Sonics ****</p>
+<p class="body">Jonas Kaufmann</p>
+<p class="body"><em>Arias Sacred &amp; Secular</em></p>
+<p class="body">Arias by J.S. Bach, Massenet, Wagner</p>
+<p class="body">Jonas Kaufmann, tenor; Il Pomo d’Oro, Francesco Corti</p>
+<p class="body">Erato 585777 (CD, 24/88.2 download). 2019. Gesine Lübben, Giulio D’Alessio, prods.; Fabio Framba, eng.; Allan Ramsay, mastering. </p>
+<p class="body">Performance ****1/2</p>
+<p class="body">Sonics ****</p>
+<h2 class="section">Jazz Head Matter</h2>
+<p class="body">Artist or Group name</p>
+<p class="body"><em>album title, in italics</em></p>
+<p class="body">Names of musicians: We follow the standard order of instrument types: woodwinds, brass, stringed instruments (guitar, violin, etc.), rhythm section (piano, bass, drums)</p>
+<p class="body">Within each of those families, individual instrument types are listed from higher range to lower range: eg, flute, clarinet, alto saxophone, tenor saxophone; trumpet, trombone, tuba. However, the leader of the recording, under whose name the album is released, always comes first, regardless of instrument played.</p>
+<p class="body">If a recording of a large group such as a big band, or multiple groups, only principal musicians should be listed. </p>
+<p class="body">Record label and catalog number</p>
+<p class="body"># and type of disc and/or digital file type and resolution (all in parens)</p>
+<p class="body">year of release; if reissue, year of original release/year of reissue</p>
+<p class="body">names of recording producers;</p>
+<p class="body">names of recording engineers;</p>
+<p class="body">names of recording masterers;</p>
+<p class="body">names of recording mixers.</p>
+<p class="body">Performance rating: how many stars (*) out of a total of five? half-stars acceptable</p>
+<p class="body">Sonics rating: how many stars (*) out of a total of five? half-stars acceptable</p>
+<p class="body"><em>Example</em><em>s</em><em>:</em></p>
+<p class="body">Paul Desmond Quartet</p>
+<p class="body"><em>Featuring Don Elliott</em></p>
+<p class="body">Paul Desmond, alto saxophone; Don Elliott, trumpet; Norman Bates, bass; Joe Dodge, drums</p>
+<p class="body">Fantasy 3235/OJC-119 (LP). 1956. Saul Zaentz, prod.(?) </p>
+<p class="body">Performance *****</p>
+<p class="body">Sonics ****</p>
+<p class="body">Eric Dolphy</p>
+<p class="body"><em>Musical Prophet: The Expanded 1963 New York Studio Sessions</em></p>
+<p class="body">Eric Dolphy, alto saxophone; bass clarinet, flute; 14 others</p>
+<p class="body">Resonance HCD-2035 (3 CDs). 1963, 1968, 1987/2018. Zev Feldman, James Newton, prods.; Bill Schwartau, eng.  </p>
+<p class="body">Performance *****</p>
+<p class="body">Sonics ****</p>
+<p class="body"><strong>Rock, Pop, Folk, World, etc., Head Matter</strong></p>
+<p class="body">Remember: No individual musicians listed for these genres.</p>
+<p class="body">Artist or Group name</p>
+<p class="body"><em>album title, in italics</em></p>
+<p class="body">Record label and catalog number</p>
+<p class="body"># and type of disc and/or digital file type and resolution (all in parens)</p>
+<p class="body">year of release; if reissue, year of original release/year of reissue</p>
+<p class="body">names of recording producers;</p>
+<p class="body">names of recording engineers;</p>
+<p class="body">names of recording masterers;</p>
+<p class="body">names of recording mixers.</p>
+<p class="body">Performance rating: how many stars (*) out of a total of five? half-stars acceptable</p>
+<p class="body">Sonics rating: how many stars (*) out of a total of five? half-stars acceptable</p>
+<p class="body"><em>Examples:</em></p>
+<p class="body">Stella Donnelly</p>
+<p class="body"><em>Beware of the Dogs</em></p>
+<p class="body">Secretly Canadian SC372 (LP/CD/WAV). 2019. Dean Tuza, prod.; Ewan Pearson, mix; Matt Colton, mastering. </p>
+<p class="body">Performance ****1/2</p>
+<p class="body">Sonics ***</p>
+<p class="body">Fotheringay</p>
+<p class="body"><em>Fotheringay</em></p>
+<p class="body">Island ILPS 9125 (LP). 1970. Joe Boyd, prod.; Jerry Boys, Tod Lloyd, engs. </p>
+<p class="body">Performance ****</p>
+<p class="body">Sonics ***1/2</p>
+<p class="body">Various Artists</p>
+<p class="body"><em>The Complete Cuban Jam Sessions</em></p>
+<p class="body">Panart/Craft Recordings CR0100 (5 CDs). 1956–64/2018. Judy Cantor-Navas, Mason Williams, prods.; Fernando Blanco, Edwin Fernandez De Castro, engs. </p>
+<p class="body">Performance ****</p>
+<p class="body">Sonics ***</p></section>
+  </div>
+</main>
+
+<footer>
+  <div class="col">
+    <p>General · Directory (484 entries) · Specifications · Record Reviews. Base style is the Chicago Manual of Style; these guides take precedence where they differ.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var tabs = document.querySelectorAll('.tabs button');
+  var sections = document.querySelectorAll('section[data-guide]');
+  var find = document.getElementById('find');
+  var count = document.getElementById('count');
+  var orig = new Map();
+
+  function active(){ return document.querySelector('section[data-guide].on'); }
+
+  function show(name){
+    tabs.forEach(function(b){ b.classList.toggle('on', b.dataset.tab === name); });
+    sections.forEach(function(s){ s.classList.toggle('on', s.dataset.guide === name); });
+    applyFilter();
+  }
+
+  tabs.forEach(function(b){
+    b.addEventListener('click', function(){
+      show(b.dataset.tab);
+      history.replaceState(null, '', '#' + b.dataset.tab);
+      window.scrollTo(0, 0);
+    });
+  });
+
+  function markNode(el, re){
+    var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    var nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(function(n){
+      var t = n.nodeValue;
+      if (!re.test(t)) return;
+      re.lastIndex = 0;
+      var frag = document.createDocumentFragment(), last = 0, m;
+      while ((m = re.exec(t))){
+        frag.appendChild(document.createTextNode(t.slice(last, m.index)));
+        var mk = document.createElement('mark');
+        mk.textContent = m[0];
+        frag.appendChild(mk);
+        last = m.index + m[0].length;
+      }
+      frag.appendChild(document.createTextNode(t.slice(last)));
+      n.parentNode.replaceChild(frag, n);
+    });
+  }
+
+  function applyFilter(){
+    var q = find.value.trim();
+    var sec = active();
+    if (!sec) return;
+    var blocks = sec.querySelectorAll('p, h2, h3');
+    blocks.forEach(function(el){
+      if (orig.has(el)) el.innerHTML = orig.get(el);
+    });
+    if (q.length < 2){
+      blocks.forEach(function(el){ el.style.display = ''; });
+      count.textContent = '';
+      return;
+    }
+    var re = new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+    var shown = 0;
+    blocks.forEach(function(el){
+      if (el.tagName !== 'P'){ el.style.display = 'none'; return; }
+      var hit = re.test(el.textContent);
+      re.lastIndex = 0;
+      el.style.display = hit ? '' : 'none';
+      if (hit){
+        shown++;
+        if (!orig.has(el)) orig.set(el, el.innerHTML);
+        markNode(el, re);
+      }
+    });
+    count.textContent = shown + (shown === 1 ? ' match' : ' matches');
+  }
+
+  find.addEventListener('input', applyFilter);
+
+  var h = location.hash.replace('#', '');
+  if (h){
+    if (h.indexOf('dir-') === 0){
+      show('directory');
+      var t = document.getElementById(h);
+      if (t) t.scrollIntoView();
+    } else if (document.querySelector('section[data-guide="' + h + '"]')){
+      show(h);
+    }
+  }
+})();
+</script>
+
+</body>
+</html>
