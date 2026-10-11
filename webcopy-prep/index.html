@@ -72,7 +72,7 @@ details li{margin:0 0 .35rem;break-inside:avoid;font-size:.92rem;}
 <div class="wrap">
   <header>
     <h1>Stereophile Web Copy Prep</h1>
-    <p>Drop in a Word, RTF, plain-text, or HTML file. The page converts it to bare HTML (paragraphs, italic, bold, superscripts only), applies the mechanical rules of the house style guide, and lists every change it made. The file never leaves your browser.</p>
+    <p>Drop in a Word, RTF, plain-text, or HTML file. The page converts it to bare HTML (paragraphs, italic, bold, superscripts, and subscripts only), applies the mechanical rules of the house style guide, and lists every change it made. The file never leaves your browser.</p>
     <p><strong>Spell-check and proofread the copy first</strong>, in whatever program it came from. This page applies house style only; it does not proofread.</p>
   </header>
 
@@ -115,6 +115,7 @@ details li{margin:0 0 .35rem;break-inside:avoid;font-size:.92rem;}
       <li>http://, https://, and www. removed from addresses</li>
       <li>Doubled words (the the), double spaces, space before punctuation</li>
       <li><em>Stereophile</em> set in italic</li>
+      <li>Subheads (Word’s 05-subhead or Heading styles, HTML headings, short all-bold lines, and in plain text short unpunctuated lines) are set as &lt;p&gt;&lt;strong&gt;Subhead&lt;/strong&gt;&lt;br&gt; at the start of the next paragraph; a terminal period is removed, title case is flagged, and every subhead is listed for checking</li>
       <li>Text that already has HTML: &lt;b&gt;/&lt;i&gt; and styled spans become &lt;strong&gt;/&lt;em&gt;; italic and bold set in a stylesheet are kept; loose lines are wrapped in &lt;p&gt;; links, spans, and other tags are removed, keeping their text; from a whole web page, only the article is kept (CSS, scripts, header, menus, sidebars, and footer go)</li>
     </ul>
   </details>
@@ -128,12 +129,13 @@ const SAMPLE = '<p><b>Test bench</b></p><p>Stereophile’s reviewer drove the 8�
 
 const AL = new Set(['P','EM','STRONG','SUP','SUB']);
 const log = new Map();
+const SUB_RULE='Subheads set as <p><strong>…</strong><br> (check each)';
 const IMG_RULE='Images and embeds removed: place them in Drupal';
 let imageCount=0;
 function note(rule, before, after){
   if(!log.has(rule)) log.set(rule,{n:0,ex:[]});
   const r = log.get(rule); r.n++;
-  if(r.ex.length<(rule===IMG_RULE?100:3)) r.ex.push([before,after]);
+  if(r.ex.length<(rule===IMG_RULE||rule===SUB_RULE?100:3)) r.ex.push([before,after]);
 }
 function rep(text, rule, re, fn){
   return text.replace(re, (...a)=>{
@@ -335,7 +337,7 @@ function process(html, name, htmlIn=false){
     wrapLoose(box);
     box.querySelectorAll('br').forEach(b=>b.replaceWith(' '));
     box.querySelectorAll('p,em,strong,sup,sub').forEach(e=>{ if(e.attributes.length){ const lt=e.tagName.toLowerCase(); note('HTML: attributes removed','⟦<'+lt+' '+e.attributes[0].name+'=…>⟧','⟦<'+lt+'>⟧'); } });
-    box.querySelectorAll('h1,h2,h3,h4,h5,h6,li,td,th,div,dt,dd,pre,figcaption,address').forEach(b=>{ if(!b.querySelector('p,h1,h2,h3,h4,h5,h6,li,td,th,div') && b.textContent.trim()) note('HTML: headings, list items, and divs made <p>','⟦<'+b.tagName.toLowerCase()+'>⟧','⟦<p>⟧'); });
+    box.querySelectorAll('h1,li,td,th,div,dt,dd,pre,figcaption,address').forEach(b=>{ if(!b.querySelector('p,h1,h2,h3,h4,h5,h6,li,td,th,div') && b.textContent.trim()) note('HTML: list items, divs, and the h1 made <p>','⟦<'+b.tagName.toLowerCase()+'>⟧','⟦<p>⟧'); });
   }
   // gather block elements as paragraphs
   const BSEL='p,h1,h2,h3,h4,h5,h6,li,td,th,blockquote,div,dt,dd,pre,figcaption,address';
@@ -346,13 +348,37 @@ function process(html, name, htmlIn=false){
   italicizeStereophile(box);
   const paras=[];
   for(const b of blocks){
+    const heading=/^H[2-6]$/.test(b.tagName);
     let s=serialize(b).replace(/\s+/g,' ').trim();
     s=s.replace(/<(em|strong)>([,.;:!?]+)<\/\1>/g,'$2');
     s=s.replace(/<\/(em|strong|sup|sub)><\1>/g,'');
     s=s.replace(/\s+—/g,'—').replace(/—\s+/g,'—');   // em dashes closed up, also across tags
-    if(s) paras.push('<p>'+s+'</p>');
+    if(s) paras.push({s, heading});
   }
-  document.getElementById('out').value=paras.join('\n\n')+'\n';
+  // Subheads: a heading tag (Word 05-subhead or Heading styles; HTML h2-h6; text-file guesses), or a short
+  // paragraph that is entirely bold with no terminal punctuation. Never the first paragraph (the headline).
+  const plain=x=>x.replace(/<[^>]+>/g,'');
+  paras.forEach((p,k)=>{
+    const boldOnly=/^<strong>(?:(?!<\/strong>).)*<\/strong>$/.test(p.s);
+    const txt=plain(p.s).trim();
+    p.sub = k>0 && (p.heading || (boldOnly && txt.length<=100 && !/[.!?:;,…"'”’)]$/.test(txt)));
+    if(!p.sub) return;
+    let inner=p.s.replace(/<\/?strong>/g,'');
+    if(/\.$/.test(plain(inner)) && !/\.\.$|…$/.test(plain(inner))){ note('Subheads: terminal period removed','⟦'+txt+'⟧','⟦'+txt.slice(0,-1)+'⟧'); inner=inner.replace(/\.(<\/[a-z]+>)*$/,'$1'); }
+    p.inner=inner;
+    note(SUB_RULE,'⟦'+plain(inner)+'⟧','⟦⟧');
+    const words=plain(inner).replace(/:\s+\S+/,'').split(/\s+/).slice(1).filter(w=>/^[A-Za-z]/.test(w));
+    const capped=words.filter(w=>/^[A-Z][a-z]/.test(w) && !/^(I|I'm|I've|I'd)$/.test(w));
+    if(words.length>=2 && capped.length>=2 && capped.length>=words.length/2) note('Check: subhead may be in title case (house style is sentence case)','⟦'+plain(inner)+'⟧','⟦⟧');
+  });
+  const out=[];
+  for(let k=0;k<paras.length;k++){
+    const p=paras[k], nx=paras[k+1];
+    if(p.sub && nx && !nx.sub){ out.push('<p><strong>'+p.inner+'</strong><br>\n'+nx.s+'</p>'); k++; }
+    else if(p.sub) out.push('<p><strong>'+p.inner+'</strong></p>');
+    else out.push('<p>'+p.s+'</p>');
+  }
+  document.getElementById('out').value=out.join('\n\n')+'\n';
   renderReport();
 }
 function renderReport(){
@@ -368,7 +394,7 @@ function renderReport(){
     for(const [b,a] of r.ex){
       const ex=document.createElement('div'); ex.className='ex';
       const fmt=(s,cls)=>{ const [pre,rest]=s.split('⟦'); const [mid,post]=(rest||'').split('⟧'); const w=document.createElement('span'); w.append(document.createTextNode('…'+pre)); const k=document.createElement(cls); k.textContent=mid; w.append(k, document.createTextNode(post+'…')); return w; };
-      if(rule===IMG_RULE) ex.textContent=b.replace(/[⟦⟧]/g,'');
+      if(rule===IMG_RULE||rule===SUB_RULE||rule.startsWith('Check:')) ex.textContent=b.replace(/[⟦⟧]/g,'');
       else ex.append(fmt(b,'del'), document.createTextNode('  →  '), fmt(a,'ins'));
       d.appendChild(ex);
     }
@@ -385,12 +411,28 @@ function decodeText(buf){
   if(t.includes('\uFFFD')) t=new TextDecoder('windows-1252').decode(buf);
   return t.replace(/^\uFEFF/,'').replace(/\r\n?/g,'\n');
 }
+const SUB_SMALL=new Set(['a','an','the','and','or','but','nor','for','of','on','in','at','to','by','with','from','as','vs','van','von','de','der','den','du','la','le','di','da']);
+function looksLikeSubhead(line, idx, all){
+  const x=line.trim(); if(idx<1 || idx>=all.length-1) return false;
+  if(/^(Contacts|Footnotes|Specifications|Associated Equipment|Measurements|Classical|Jazz|Rock|Pop|Rock\/Pop|Folk|World|Blues|Country|Reissues)$/i.test(x)) return true;   // house section and genre heads
+  const bare=x.replace(/["'”’)\]]+$/,'');                     // look past closing quotes/parens for the last real mark
+  if(idx<2 || x.length<3 || x.length>80 || !/[A-Za-z]/.test(x) || !/^[A-Z0-9"“‘']/.test(x)) return false;
+  if(/[.!?:;,…]$/.test(bare) || x===x.toUpperCase() || /^[—–-]/.test(x) || /—[A-Z]/.test(x)) return false;
+  if(/[=*;]/.test(x) || /^\d+\s/.test(x) || /^(Web|Tel|Fax|E-?mail|US distributor|Distributor|Price|Manufacturer|Image|Fig)\b/i.test(x)) return false;
+  // house subheads are sentence case: a line whose every content word is capped is a name, title, or byline,
+  // unless it carries a model number (Compared to the Klipsch RP-600M II)
+  const words=x.split(/\s+/).filter(w=>/^[A-Za-zÀ-ž]/.test(w) && !SUB_SMALL.has(w.toLowerCase()));
+  if(words.length>=2 && words.every(w=>/^[A-ZÀ-Þ]/.test(w)) && !/\d/.test(x)) return false;
+  const nx=all[idx+1].replace(/<[^>]+>/g,'').trim();
+  return nx.length>80 || /[.!?…"”’]$/.test(nx);
+}
 function txtToHtml(t, raw=false){
   const lines=t.split('\n').map(x=>x.trim()).filter(Boolean);
-  const lens=lines.map(x=>x.length).sort((a,b)=>a-b), median=lens[Math.floor(lens.length/2)]||0;
-  const wrapped=/\n[ \t]*\n/.test(t) && median<90 && lines.length>=1.5*t.split(/\n[ \t]*\n/).length;
-  const parts = wrapped ? t.split(/\n[ \t]*\n+/).map(x=>x.replace(/\s*\n\s*/g,' ')) : lines;
-  return parts.map(x=>x.trim()).filter(Boolean).map(x=>'<p>'+(raw?x:esc(x))+'</p>').join('');
+  // hard-wrapped (email-style) text: blank lines between paragraphs, and nearly every line stops short of a fixed width
+  const lens=lines.map(x=>x.length).sort((a,b)=>a-b), p90=lens[Math.floor(lens.length*0.9)]||0;
+  const wrapped=/\n[ \t]*\n/.test(t) && p90<=100 && lines.length>=1.5*t.split(/\n[ \t]*\n/).length;
+  const parts = (wrapped ? t.split(/\n[ \t]*\n+/).map(x=>x.replace(/\s*\n\s*/g,' ')) : lines).map(x=>x.trim()).filter(Boolean);
+  return parts.map((x,k)=>{ const body=raw?x:esc(x); return looksLikeSubhead(raw?x.replace(/<[^>]+>/g,''):x,k,parts) ? '<h3>'+body+'</h3>' : '<p>'+body+'</p>'; }).join('');
 }
 const HAS_TAGS=/<\/?(?:p|div|br|em|strong|i|b|u|sup|sub|span|a|font|h[1-6]|li|ul|ol|blockquote|html|body|table)\b[^>]*>/i;
 const HAS_BLOCK_TAGS=/<\/?(?:p|div|br|h[1-6]|li|blockquote|html|body|table)\b[^>]*>/i;
@@ -399,7 +441,13 @@ const RTF_SKIP=new Set(['fonttbl','colortbl','stylesheet','info','pict','header'
 const RTF_CHARS={emdash:'—',endash:'–',lquote:'‘',rquote:'’',ldblquote:'“',rdblquote:'”',bullet:'•',tab:' ',line:' ',emspace:' ',enspace:' ',qmspace:' '};
 function rtfToHtml(rtf){
   const cp=new TextDecoder('windows-1252');
-  let st={b:0,i:0,sup:0,sub:0,skip:false,uc:1,fn:false,nonshp:false}; let pics=0;
+  let st={b:0,i:0,sup:0,sub:0,skip:false,uc:1,fn:false,nonshp:false,ps:0}; let pics=0;
+  // Word's RTF names its paragraph styles: {\s3 ... 05-subhead;}
+  const subStyles=new Set(); const ssAt=rtf.indexOf('{\\stylesheet');
+  if(ssAt>=0){ let dep=0,e=ssAt; for(;e<rtf.length;e++){ if(rtf[e]==='{'&&rtf[e-1]!=='\\')dep++; else if(rtf[e]==='}'&&rtf[e-1]!=='\\'&&--dep===0)break; }
+    for(const m of rtf.slice(ssAt,e).matchAll(/\{(?:\\\*)?\\s(\d+)\b([^{}]*)\}/g)){ const nm=m[2].replace(/\\[a-z]+-?\d* ?/gi,'').replace(/;\s*$/,'').trim();
+      if(/subhead|^heading [2-6]$/i.test(nm)) subStyles.add(+m[1]); } }
+  const bodyTxt=[], bodyHead=[];
   const stack=[]; const body=[]; const notes=[]; let cur=[]; let fnCur=null; let fnCount=0; let ucLeft=0;
   const target=()=>st.fn?fnCur:cur;
   const put=t=>{ if(st.skip||!t) return; const a=target(); if(!a) return;
@@ -408,7 +456,7 @@ function rtfToHtml(rtf){
   const runs=a=>a.map(r=>{ let h=esc(r.t); if(r.sup)h='<sup>'+h+'</sup>'; else if(r.sub)h='<sub>'+h+'</sub>';
     if(r.i)h='<em>'+h+'</em>'; if(r.b)h='<strong>'+h+'</strong>'; return h; }).join('');
   const endPara=()=>{ if(st.skip) return; if(st.fn){ fnCur.push({t:' ',k:'',b:0,i:0,sup:0,sub:0}); return; }
-    if(cur.some(r=>r.t.trim())) body.push(runs(cur)); cur=[]; };
+    if(cur.some(r=>r.t.trim())){ body.push(runs(cur)); bodyTxt.push(cur.map(r=>r.t).join('').trim()); bodyHead.push(subStyles.has(st.ps)); } cur=[]; };
   let i=0; const n=rtf.length;
   while(i<n){
     const c=rtf[i];
@@ -436,6 +484,8 @@ function rtfToHtml(rtf){
       case 'sub': st.sub=1; st.sup=0; break;
       case 'nosupersub': st.sup=0; st.sub=0; break;
       case 'plain': st.b=st.i=st.sup=st.sub=0; break;
+      case 's': st.ps=arg||0; break;
+      case 'pard': st.ps=0; break;
       case 'uc': st.uc=arg??1; break;
       case 'u': { let v=arg; if(v<0) v+=65536; put(String.fromCharCode(v)); ucLeft=st.uc; break; }
       case 'chftn': if(st.fn) put(fnCount+' '); else { fnCount++; const s0=st.sup; st.sup=1; put(String(fnCount)); st.sup=s0; } break;
@@ -448,7 +498,8 @@ function rtfToHtml(rtf){
     }
   }
   endPara();
-  let html=body.map(h=>'<p>'+h+'</p>').join('');
+  const styled=bodyHead.some(Boolean);
+  let html=body.map((h,k)=>(styled ? bodyHead[k] : looksLikeSubhead(bodyTxt[k],k,bodyTxt)) ? '<h3>'+h+'</h3>' : '<p>'+h+'</p>').join('');
   if(pics) html+='<p>'+'<img src="rtf-image">'.repeat(pics)+'</p>';
   if(notes.length) html+='<p>Footnotes</p>'+notes.map(h=>'<p>'+h.trim()+'</p>').join('');
   return html;
@@ -467,7 +518,7 @@ async function handle(file){
     const buf=await file.arrayBuffer();
     let html, htmlIn=false;
     if(ext==='docx'){
-      const res=await mammoth.convertToHtml({arrayBuffer:buf},{convertImage:mammoth.images.imgElement(im=>Promise.resolve({src:'docx-image.'+((im.contentType||'').split('/')[1]||'img')})),ignoreEmptyParagraphs:true});
+      const res=await mammoth.convertToHtml({arrayBuffer:buf},{convertImage:mammoth.images.imgElement(im=>Promise.resolve({src:'docx-image.'+((im.contentType||'').split('/')[1]||'img')})),ignoreEmptyParagraphs:true,styleMap:["p[style-name='05-subhead'] => h3:fresh","p[style-name='01-headline'] => p:fresh","p[style-name='02-deck'] => p:fresh","p[style-name='Heading 1'] => p:fresh","p[style-name='Title'] => p:fresh"]});
       html=res.value;
     } else if(ext==='rtf'){
       const raw=new TextDecoder('windows-1252').decode(buf);
