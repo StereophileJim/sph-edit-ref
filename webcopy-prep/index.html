@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stereophile Web Copy Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600&display=swap">
+<style>
+html{color-scheme:light;}
+body{margin:0;}
+img{max-width:100%;}
+[hidden]{display:none!important;}
+
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --ink:#1b2027; --muted:#5c6673; --line:#d9dee5;
+  --accent:#2b5c8a; --accent-ink:#ffffff; --fix:#1f7a4d; --fix-bg:#e6f4ec; --code-bg:#f1f3f6;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#13171c; --panel:#1b2129; --ink:#e4e8ee; --muted:#9aa5b3; --line:#2c3440;
+    --accent:#7fb0de; --accent-ink:#0f1720; --fix:#7fd1a4; --fix-bg:#173326; --code-bg:#161b22; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#13171c; --panel:#1b2129; --ink:#e4e8ee; --muted:#9aa5b3; --line:#2c3440;
+  --accent:#7fb0de; --accent-ink:#0f1720; --fix:#7fd1a4; --fix-bg:#173326; --code-bg:#161b22; color-scheme:dark;
+}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 var(--sans);}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:28px 48px;display:grid;gap:22px;}
+header h1{font:600 1.6rem/1.2 var(--serif);margin:0;text-wrap:balance;}
+header p{margin:.35rem 0 0;color:var(--muted);max-width:68ch;}
+.drop{border:1.5px dashed var(--line);border-radius:10px;background:var(--panel);padding:20px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;}
+.drop.over{border-color:var(--accent);}
+.drop strong{display:block;font-weight:600;}
+.drop span{color:var(--muted);font-size:.9rem;}
+.btn{font:500 .92rem var(--sans);border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);border-radius:7px;padding:.55rem 1rem;cursor:pointer;}
+.btn.ghost{background:transparent;color:var(--accent);}
+.btn:focus-visible,.drop:focus-within{outline:2px solid var(--accent);outline-offset:2px;}
+input[type=file]{position:absolute;width:1px;height:1px;opacity:0;}
+.status{font-size:.9rem;color:var(--muted);}
+.status b{color:var(--ink);font-weight:600;}
+.cols{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:22px;align-items:start;}
+@media (max-width:860px){.cols{grid-template-columns:1fr;}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+.panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line);}
+.panel-head h2{font:600 .78rem var(--sans);letter-spacing:.07em;text-transform:uppercase;margin:0;color:var(--muted);}
+textarea{display:block;width:100%;min-height:440px;box-sizing:border-box;border:0;resize:vertical;padding:14px 16px;font:13px/1.6 var(--mono);color:var(--ink);background:var(--code-bg);}
+.report{padding:6px 16px 16px;display:grid;gap:12px;}
+.rule{display:grid;gap:4px;padding-top:10px;border-top:1px solid var(--line);}
+.rule:first-child{border-top:0;}
+.rule-top{display:flex;justify-content:space-between;gap:8px;align-items:baseline;}
+.rule-name{font-weight:600;}
+.count{font:500 .78rem var(--mono);color:var(--fix);background:var(--fix-bg);border-radius:999px;padding:.08rem .55rem;white-space:nowrap;font-variant-numeric:tabular-nums;}
+.ex{font:12.5px/1.5 var(--mono);color:var(--muted);overflow-wrap:anywhere;}
+.ex del{text-decoration:line-through;color:var(--muted);}
+.ex ins{text-decoration:none;color:var(--fix);font-weight:500;}
+.none{color:var(--muted);padding:12px 0;}
+details{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 16px;}
+summary{cursor:pointer;font-weight:600;}
+details ul{margin:.6rem 0 0;padding-left:1.2rem;columns:2 280px;column-gap:28px;}
+details li{margin:0 0 .35rem;break-inside:avoid;font-size:.92rem;}
+.tag{font:500 .72rem var(--sans);letter-spacing:.05em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:4px;padding:.05rem .4rem;margin-left:.4rem;}
+@media (prefers-reduced-motion:no-preference){.btn{transition:filter .15s}.btn:hover{filter:brightness(1.08)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Stereophile Web Copy Prep</h1>
+    <p>Drop in a Word file. The page converts it to bare HTML (paragraphs, italic, bold, superscripts only), applies the mechanical rules of the house style guide, and lists every change it made. The file never leaves your browser.</p>
+    <p><strong>Run Word’s spelling and grammar check first.</strong> This page applies house style only; it does not proofread.</p>
+  </header>
+
+  <label class="drop" id="drop" for="file">
+    <div><strong>Choose a .docx file, or drop it here</strong><span>Word documents only. Images and links are removed; link text is kept.</span></div>
+    <span class="btn">Choose file</span>
+    <input type="file" id="file" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+  </label>
+
+  <div class="status" id="status"><b>Example loaded.</b> This sample shows what the page fixes. Choose a file to convert your own.</div>
+
+  <div class="cols">
+    <section class="panel">
+      <div class="panel-head"><h2>HTML</h2><button class="btn" id="copy" type="button">Copy HTML</button></div>
+      <textarea id="out" readonly spellcheck="false" aria-label="Converted HTML"></textarea>
+    </section>
+    <section class="panel">
+      <div class="panel-head"><h2>Changes made</h2><span class="status" id="total"></span></div>
+      <div class="report" id="report"></div>
+    </section>
+  </div>
+
+  <details>
+    <summary>What this page changes</summary>
+    <ul>
+      <li>Curly quotes and apostrophes become straight</li>
+      <li>Four-digit numbers lose their comma (8,000 → 8000); five digits keep it</li>
+      <li>Prices drop .00 ($1,299.00 → $1299)</li>
+      <li>Spaced dashes and double hyphens become a closed em dash</li>
+      <li>Units close up to numerals (20 Hz → 20Hz, 92 dB → 92dB); lb stays spaced and singular</li>
+      <li>Power output to Wpc (100 watts per channel → 100Wpc)</li>
+      <li>Ω becomes ohms (8Ω → 8 ohms)</li>
+      <li>Bit depth and sample rate to 24/96 form</li>
+      <li>percent → %; i.e./e.g. → ie,/eg,; vs. → vs</li>
+      <li>Negative numbers take an en dash (-3dB → –3dB); unit ranges take an en dash</li>
+      <li>Decades: 90's → '90s, 1990's → 1990s</li>
+      <li>Ellipses: ... → … with a space each side</li>
+      <li>No hyphen after -ly adverbs (highly-regarded → highly regarded)</li>
+      <li>S/PDIF, TOSLINK, setup, masterclass, and the style guide's closed compounds and US spellings</li>
+      <li>http://, https://, and www. removed from addresses</li>
+      <li>Doubled words (the the), double spaces, space before punctuation</li>
+      <li><em>Stereophile</em> set in italic</li>
+    </ul>
+  </details>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+<script>
+const SUBS = {"words": {"adaptor": "adapter", "analogue": "analog", "analogues": "analogs", "cancelled": "canceled", "cancelling": "canceling", "catalogue": "catalog", "catalogues": "catalogs", "coherency": "coherence", "competency": "competence", "conciseness": "concision", "cuing": "cueing", "dialogue": "dialog", "dialogues": "dialogs", "extrovert": "extravert", "extroverts": "extraverts", "extroverted": "extraverted", "judgement": "judgment", "monobloc": "monoblock", "ok": "okay", "preciseness": "precision", "tempos": "tempi", "tympani": "timpani", "tranquillity": "tranquility", "travelling": "traveling", "travelled": "traveled", "traveller": "traveler", "travellers": "travelers", "unmistakeable": "unmistakable", "upgradeable": "upgradable", "wireable": "wirable", "awhile": "a while", "alot": "a lot", "e-mail": "email", "e-mails": "emails", "after-market": "aftermarket", "anti-skate": "antiskate", "anti-skating": "antiskating", "bi-amp": "biamp", "bi-amped": "biamped", "bi-amping": "biamping", "bit-stream": "bitstream", "bi-wire": "biwire", "bi-wired": "biwired", "bi-wiring": "biwiring", "counter-intuitive": "counterintuitive", "cross-talk": "crosstalk", "moving-coil": "moving coil", "moving-magnet": "moving magnet", "hard-wire": "hardwire", "hard-wiring": "hardwiring", "tri-wired": "triwired", "tri-wiring": "triwiring", "laser-discs": "laserdiscs", "mini-monitors": "minimonitors", "smart-phones": "smartphones", "sub-woofers": "subwoofers", "sub-chassis": "subchassis", "sub-platter": "subplatter", "sub-platters": "subplatters", "web-pages": "webpages", "web-sites": "websites", "noise-floors": "noisefloors", "sound-stages": "soundstages", "sound-staging": "soundstaging", "wave-forms": "waveforms", "wave-lengths": "wavelengths", "micro-dynamic": "microdynamic", "macro-dynamic": "macrodynamic", "data-base": "database", "data-stream": "datastream", "floor-standing": "floorstanding", "free-lance": "freelance", "hard-wired": "hardwired", "infra-red": "infrared", "laser-disc": "laserdisc", "life-like": "lifelike", "macro-dynamics": "macrodynamics", "micro-dynamics": "microdynamics", "mini-monitor": "minimonitor", "multi-channel": "multichannel", "near-field": "nearfield", "hot-spot": "hotspot", "mini-series": "miniseries", "noise-floor": "noisefloor", "noise-shape": "noiseshape", "noise-shaper": "noiseshaper", "noise-shaping": "noiseshaping", "non-stop": "nonstop", "ultra-quiet": "ultraquiet", "re-enter": "reenter", "re-entering": "reentering", "re-flash": "reflash", "re-flashed": "reflashed", "re-flashing": "reflashing", "re-route": "reroute", "re-routed": "rerouted", "re-routing": "rerouting", "rise-time": "risetime", "sine-wave": "sinewave", "slide-rule": "sliderule", "smart-phone": "smartphone", "sound-field": "soundfield", "sound-floor": "soundfloor", "sound-source": "soundsource", "sound-space": "soundspace", "sound-stage": "soundstage", "set-up": "setup", "set-ups": "setups", "sound-track": "soundtrack", "square-wave": "squarewave", "stand-mount": "standmount", "stand-mounts": "standmounts", "sub-enclosure": "subenclosure", "sub-woofer": "subwoofer", "tone-arm": "tonearm", "tri-wire": "triwire", "wave-form": "waveform", "wave-length": "wavelength", "web-page": "webpage", "web-site": "website", "wide-band": "wideband", "pre-release": "prerelease", "preemphasis": "pre-emphasis", "spectral-decay": "spectral decay", "solid-state": "solid state", "bassline": "bass line", "goosebumps": "goose bumps", "phonostage": "phono stage"}, "phrases": [["\\bafter\\s+market\\b", "aftermarket"], ["\\bbit\\s+stream\\b", "bitstream"], ["\\bcross\\s+talk\\b", "crosstalk"], ["\\bdata\\s+base\\b", "database"], ["\\bdata\\s+stream\\b", "datastream"], ["\\bfloor\\s+standing\\b", "floorstanding"], ["\\bultra\\s+quiet\\b", "ultraquiet"], ["\\bfree\\s+lance\\b", "freelance"], ["\\bhard\\s+wired\\b", "hardwired"], ["\\blaser\\s+disc\\b", "laserdisc"], ["\\bmacro\\s+dynamics\\b", "macrodynamics"], ["\\bmicro\\s+dynamics\\b", "microdynamics"], ["\\bmini\\s+monitor\\b", "minimonitor"], ["\\bmulti\\s+channel\\b", "multichannel"], ["\\bnear\\s+field\\b", "nearfield"], ["\\bnoise\\s+floor\\b", "noisefloor"], ["\\bnoise\\s+shape\\b", "noiseshape"], ["\\bnoise\\s+shaper\\b", "noiseshaper"], ["\\bnoise\\s+shaping\\b", "noiseshaping"], ["\\brise\\s+time\\b", "risetime"], ["\\bsine\\s+wave\\b", "sinewave"], ["\\bslide\\s+rule\\b", "sliderule"], ["\\bsmart\\s+phone\\b", "smartphone"], ["\\bsound\\s+field\\b", "soundfield"], ["\\bsound\\s+floor\\b", "soundfloor"], ["\\bsound\\s+source\\b", "soundsource"], ["\\bsound\\s+space\\b", "soundspace"], ["\\bsound\\s+stage\\b", "soundstage"], ["\\bsound\\s+track\\b", "soundtrack"], ["\\bsquare\\s+wave\\b", "squarewave"], ["\\bstand\\s+mounts\\b", "standmounts"], ["\\bstand\\s+mount\\b", "standmount"], ["\\btone\\s+arm\\b", "tonearm"], ["\\bwave\\s+form\\b", "waveform"], ["\\bwave\\s+length\\b", "wavelength"], ["\\bweb\\s+page\\b", "webpage"], ["\\bweb\\s+site\\b", "website"], ["\\btry\\s+and\\b", "try to"]]};
+
+const SAMPLE = '<p><b>Test bench</b></p><p>Stereophile’s reviewer drove the 8Ω speakers with 100 watts per channel at 1,000 Hz and heard a “highly-detailed” soundstage... It played 24-bit/96kHz files through S-PDIF, i.e. the coax input, from 20 Hz-20 kHz, about -3 dB down. Price: $1,299.00, about 8,000 units sold in the 1990\'s, weight 37.7lbs. See https://www.example.com for the the details.</p>';
+
+const AL = new Set(['P','EM','STRONG','SUP','SUB']);
+const log = new Map();
+function note(rule, before, after){
+  if(!log.has(rule)) log.set(rule,{n:0,ex:[]});
+  const r = log.get(rule); r.n++;
+  if(r.ex.length<3) r.ex.push([before,after]);
+}
+function rep(text, rule, re, fn){
+  return text.replace(re, (...a)=>{
+    const m=a[0], off=a[a.length-2], src=a[a.length-1];
+    const out = typeof fn==='function' ? fn(...a) : fn;   // string replacements are literal
+    if(out!==m){
+      const pre=src.slice(Math.max(0,off-18),off), post=src.slice(off+m.length, off+m.length+18);
+      note(rule, pre+'⟦'+m+'⟧'+post, pre+'⟦'+out+'⟧'+post);
+    }
+    return out;
+  });
+}
+const LY_KEEP = new Set(['early','only','family','holy','ugly','jelly','belly','rally','supply','apply','reply','fly','lily','italy','wily','oily','curly','hilly','friendly','lovely','lively','likely','unlikely','daily','weekly','monthly','yearly','hourly','nightly','costly','elderly','silly','burly','surly','jolly','lonely','deadly','kindly','timely','orderly','scholarly','ghostly','worldly','homely','leisurely','lowly','stately','comely','gnarly','bully','ally','sly','manly','womanly','sickly','chilly','frilly','woolly','wobbly','bubbly','crinkly','prickly','smelly','dolly','golly','bodily','godly','heavenly','beastly','courtly','portly','saintly','unruly','user-friendly','assembly','anomaly','monopoly','melancholy','rely']);
+const MATCH_CASE = (orig, word) => orig[0]===orig[0].toUpperCase() ? word[0].toUpperCase()+word.slice(1) : word;
+
+function fixText(t){
+  // characters
+  t = rep(t,'Curly quotes made straight',/[\u2018\u2019\u201A\u2032]/g,"'");
+  t = rep(t,'Curly quotes made straight',/[\u201C\u201D\u201E\u2033]/g,'"');
+  t = t.replace(/\u00A0/g,' ');
+  // dashes
+  t = rep(t,'Spaced or double-hyphen dashes closed to an em dash',/\s+[\u2013\u2014]\s+|\s*--\s*/g,'\u2014');
+  // money and numbers
+  t = rep(t,'Prices: .00 removed',/(\$\d[\d,]*)\.00\b/g,(m,a)=>a);
+  t = rep(t,'Four-digit numbers: comma removed',/(?<![\d,.])(\d),(\d{3})(?![\d,]|\.\d)/g,(m,a,b)=>a+b);
+  t = rep(t,'Percent as %',/(\d)\s?(?:per\s?cent)\b/gi,(m,a)=>a+'%');
+  t = rep(t,'Percent as %',/(\d)\s+%/g,(m,a)=>a+'%');
+  // power, impedance, bit depth
+  t = rep(t,'Power output as Wpc',/(\d+(?:\.\d+)?)\s*(?:W|watts?)\s*(?:\/|per)\s*(?:ch\.?|channel)\b/gi,(m,a)=>a+'Wpc');
+  t = rep(t,'Ω spelled out as ohms',/(\d)\s?Ω/g,(m,a)=>a+' ohms');
+  t = rep(t,'Ω spelled out as ohms',/(\d)ohms\b/gi,(m,a)=>a+' ohms');
+  t = rep(t,'Bit depth/sample rate as 24/96',/\b(\d{2})[- ]?bits?\s*\/\s*(\d{2,3}(?:\.\d+)?)\s?kHz\b/gi,(m,a,b)=>a+'/'+b);
+  // ranges and negatives (before units close up, so they see the spacing)
+  t = rep(t,'Ranges with units take an en dash',/(\d+(?:\.\d+)?)\s?(Hz|kHz|dB|W|V)?\s?-\s?(\d+(?:\.\d+)?)\s?(Hz|kHz|dB|W|V)\b/g,(m,a,u1,b,u2)=>a+(u1||'')+'\u2013'+b+u2);
+  t = rep(t,'Negative numbers take an en dash',/(^|[\s(])-(\d+(?:\.\d+)?\s?(?:dB|dBW|dBV|dBu|V|Hz|kHz|W)\b)/g,(m,a,b)=>a+'\u2013'+b);
+  // units
+  t = rep(t,'Units closed up to numerals',/(\d)\s+(Hz|kHz|MHz|dB|dBW|dBV|dBu|mV|µV|V|W|mW|kW|mm|cm|kg|gm|ms|µs|ns|Wpc)\b/g,(m,a,u)=>a+u);
+  t = rep(t,'lb: spaced, singular, no period',/(\d)\s?lbs?\.?(?![A-Za-z])/g,(m,a)=>a+' lb');
+  // abbreviations
+  t = rep(t,'ie / eg / vs without periods',/\b(i)\.\s?e\.,?(?=\s)/gi,(m,a)=>a+'e,');
+  t = rep(t,'ie / eg / vs without periods',/\b(e)\.\s?g\.,?(?=\s)/gi,(m,a)=>a+'g,');
+  t = rep(t,'ie / eg / vs without periods',/\bvs\./g,'vs');
+  t = rep(t,'Decades without a possessive apostrophe',/\b(\d{4})'s\b/g,(m,a)=>a+'s');
+  t = rep(t,'Decades without a possessive apostrophe',/(?<!['\d])\b(\d0)'s\b/g,(m,a)=>"'"+a+'s');
+  // ellipsis
+  t = rep(t,'Ellipses as … with spaces',/\s*\.\s?\.\s?\.(?!\.)\s*/g,(m,off,src)=>{
+    const next=src.charAt(off+m.length);
+    return ' \u2026' + (next==='' || /["'),.;:!?\]]/.test(next) ? '' : ' ');
+  });
+  // hyphens after -ly adverbs
+  t = rep(t,'No hyphen after -ly adverbs',/\b([A-Za-z]+ly)-(?=[A-Za-z])/g,(m,a)=>LY_KEEP.has(a.toLowerCase())?m:a+' ');
+  // names and terms
+  t = rep(t,'S/PDIF and TOSLINK',/\bS[-\s]?PDIF\b/gi,'S/PDIF');
+  t = rep(t,'S/PDIF and TOSLINK',/\bto?s[-\s]?link\b/gi,'TOSLINK');
+  t = rep(t,'setup (not set-up)',/\b([Ss])et-up(s?)\b/g,(m,a,s)=>a+'etup'+s);
+  t = rep(t,'masterclass closed up',/\b([Mm])aster[\s-]+class(es)?\b/g,(m,a,s)=>a+'asterclass'+(s||''));
+  for(const [pat,to] of SUBS.phrases){
+    t = rep(t,'Style guide: closed compounds and word choices',new RegExp(pat,'gi'),(m)=>MATCH_CASE(m,to));
+  }
+  t = rep(t,'Style guide: closed compounds and word choices',WORD_RE,function(m){
+    const to = SUBS.words[m.toLowerCase()]; if(!to) return m;
+    if(m==='OK'){ const a=arguments, off=a[a.length-2], src=a[a.length-1]; const before=src.slice(0,off).trimEnd(); return (before==='' || /[.!?:"]$/.test(before)) ? 'Okay' : 'okay'; }
+    return m===m.toUpperCase() && m.length>2 ? to.toUpperCase() : MATCH_CASE(m,to);
+  });
+  // addresses
+  t = rep(t,'http://, https://, www. removed',/\bhttps?:\/\/(?:www\.)?|\bwww\.(?=[a-z0-9-]+\.)/gi,'');
+  // tidying
+  t = rep(t,'Doubled words removed',/\b(the|a|an|of|to|and|in|on|for|is|it|with|that)\s+\1\b/gi,(m,a)=>a);
+  t = rep(t,'Space before punctuation removed',/ +([,.;:!?])(?!\d)/g,(m,a)=>a);
+  t = t.replace(/ {2,}/g,' ');
+  return t;
+}
+const WORD_RE = new RegExp('\\b(?:'+Object.keys(SUBS.words).sort((a,b)=>b.length-a.length).map(w=>w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|')+')\\b','gi');
+
+function italicizeStereophile(root){
+  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+  const nodes=[]; while(walker.nextNode()) nodes.push(walker.currentNode);
+  for(const n of nodes){
+    if(n.parentElement.closest('em')) continue;
+    if(!/Stereophile/.test(n.nodeValue)) continue;
+    const parts=n.nodeValue.split(/(Stereophile)/); const frag=document.createDocumentFragment();
+    for(const p of parts){
+      if(p==='Stereophile'){ const em=document.createElement('em'); em.textContent=p; frag.appendChild(em); note('Stereophile set in italic','Stereophile','<em>Stereophile</em>'); }
+      else if(p) frag.appendChild(document.createTextNode(p));
+    }
+    n.replaceWith(frag);
+  }
+}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function serialize(node){
+  let out='';
+  for(const c of node.childNodes){
+    if(c.nodeType===3){ out+=esc(c.nodeValue); continue; }
+    if(c.nodeType!==1) continue;
+    let tag=c.tagName; if(tag==='B') tag='STRONG'; if(tag==='I') tag='EM';
+    const inner=serialize(c);
+    if(AL.has(tag) && tag!=='P'){
+      const lead=inner.match(/^\s*/)[0], trail=inner.match(/\s*$/)[0], core=inner.trim();
+      out += core ? lead+'<'+tag.toLowerCase()+'>'+core+'</'+tag.toLowerCase()+'>'+trail : inner;
+    } else out+=inner;
+  }
+  return out;
+}
+function process(html, name){
+  log.clear();
+  const box=document.createElement('div'); box.innerHTML=html;
+  box.querySelectorAll('img,table caption,style,script').forEach(e=>e.remove());
+  // gather block elements as paragraphs
+  const blocks=[...box.querySelectorAll('p,h1,h2,h3,h4,h5,h6,li,td,th,blockquote')].filter(b=>!b.querySelector('p,h1,h2,h3,h4,h5,h6,li,td,th,blockquote'));
+  const tw=document.createTreeWalker(box,NodeFilter.SHOW_TEXT);
+  const texts=[]; while(tw.nextNode()) texts.push(tw.currentNode);
+  for(const n of texts){ n.nodeValue=fixText(n.nodeValue); }
+  italicizeStereophile(box);
+  const paras=[];
+  for(const b of blocks){
+    let s=serialize(b).replace(/\s+/g,' ').trim();
+    s=s.replace(/<(em|strong)>([,.;:!?]+)<\/\1>/g,'$2');
+    s=s.replace(/<\/(em|strong|sup|sub)><\1>/g,'');
+    if(s) paras.push('<p>'+s+'</p>');
+  }
+  document.getElementById('out').value=paras.join('\n\n')+'\n';
+  renderReport();
+}
+function renderReport(){
+  const el=document.getElementById('report'); el.innerHTML='';
+  let total=0;
+  for(const [rule,r] of log){
+    total+=r.n;
+    const d=document.createElement('div'); d.className='rule';
+    const top=document.createElement('div'); top.className='rule-top';
+    const nm=document.createElement('span'); nm.className='rule-name'; nm.textContent=rule;
+    const ct=document.createElement('span'); ct.className='count'; ct.textContent=r.n+(r.n===1?' change':' changes');
+    top.append(nm,ct); d.appendChild(top);
+    for(const [b,a] of r.ex){
+      const ex=document.createElement('div'); ex.className='ex';
+      const fmt=(s,cls)=>{ const [pre,rest]=s.split('⟦'); const [mid,post]=(rest||'').split('⟧'); const w=document.createElement('span'); w.append(document.createTextNode('…'+pre)); const k=document.createElement(cls); k.textContent=mid; w.append(k, document.createTextNode(post+'…')); return w; };
+      ex.append(fmt(b,'del'), document.createTextNode('  →  '), fmt(a,'ins'));
+      d.appendChild(ex);
+    }
+    el.appendChild(d);
+  }
+  if(!total){ const n=document.createElement('div'); n.className='none'; n.textContent='No house-style changes were needed.'; el.appendChild(n); }
+  document.getElementById('total').textContent = total ? total+' total' : '';
+}
+async function handle(file){
+  const st=document.getElementById('status');
+  if(!file || !/\.docx$/i.test(file.name)){ st.innerHTML='<b>That isn’t a .docx file.</b> Save the document as a Word (.docx) file and try again.'; return; }
+  st.innerHTML='<b>Converting</b> '+esc(file.name)+'…';
+  try{
+    const buf=await file.arrayBuffer();
+    const res=await mammoth.convertToHtml({arrayBuffer:buf},{convertImage:mammoth.images.imgElement(()=>Promise.resolve({src:''})),ignoreEmptyParagraphs:true});
+    process(res.value, file.name);
+    st.innerHTML='<b>'+esc(file.name)+'</b> converted. Review the changes, then copy the HTML.';
+  }catch(e){
+    st.innerHTML='<b>Couldn’t read that file.</b> It may be damaged or password-protected. Open it in Word, save a fresh copy, and try again.';
+  }
+}
+const fileIn=document.getElementById('file'), drop=document.getElementById('drop');
+fileIn.addEventListener('change',e=>handle(e.target.files[0]));
+['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('over');}));
+['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('over');}));
+drop.addEventListener('drop',e=>handle(e.dataTransfer.files[0]));
+document.getElementById('copy').addEventListener('click',async()=>{
+  const ta=document.getElementById('out'), b=document.getElementById('copy');
+  try{ await navigator.clipboard.writeText(ta.value); b.textContent='Copied'; }
+  catch(e){ ta.focus(); ta.select(); b.textContent='Selected: press ⌘C'; }
+  setTimeout(()=>b.textContent='Copy HTML',1800);
+});
+process(SAMPLE,'example');
+</script>
+</body>
+</html>
